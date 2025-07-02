@@ -1,0 +1,157 @@
+/* Responsive Design System - Breakpoints and Variables */
+
+:root {
+  /* Breakpoint Variables */
+  --breakpoint-xs: 320px;
+  --breakpoint-sm: 576px;
+  --breakpoint-md: 768px;
+  --breakpoint-lg: 992px;
+  --breakpoint-xl: 1200px;
+  --breakpoint-xxl: 1400px;
+  
+  /* Container Max Widths */
+  --container-sm: 540px;
+  --container-md: 720px;
+  --container-lg: 960px;
+  --container-xl: 1140px;
+  --container-xxl: 1320px;
+  
+  /* Responsive Spacing */
+  --spacing-xs: clamp(0.5rem, 2vw, 1rem);
+  --spacing-sm: clamp(1rem, 3vw, 1.5rem);
+  --spacing-md: clamp(1.5rem, 4vw, 2rem);
+  --spacing-lg: clamp(2rem, 5vw, 3rem);
+  --spacing-xl: clamp(3rem, 6vw, 4rem);
+  --spacing-xxl: clamp(4rem, 8vw, 6rem);
+  
+  /* Responsive Font Sizes */
+  --text-xs: clamp(0.75rem, 1.5vw, 0.875rem);
+  --text-sm: clamp(0.875rem, 2vw, 1rem);
+  --text-base: clamp(1rem, 2.5vw, 1.125rem);
+  --text-lg: clamp(1.125rem, 3vw, 1.25rem);
+  --text-xl: clamp(1.25rem, 3.5vw, 1.5rem);
+  --text-2xl: clamp(1.5rem, 4vw, 2rem);
+  --text-3xl: clamp(2rem, 5vw, 2.5rem);
+  --text-4xl: clamp(2.5rem, 6vw, 3.5rem);
+  --text-5xl: clamp(3rem, 7vw, 4.5rem);
+  
+  /* Touch Target Sizes */
+  --touch-target-min: 44px;
+  --touch-target-comfortable: 48px;
+  
+  /* Responsive Borders and Shadows */
+  --border-radius-sm: clamp(4px, 1vw, 8px);
+  --border-radius-md: clamp(8px, 2vw, 12px);
+  --border-radius-lg: clamp(12px, 3vw, 20px);
+  
+  /* Responsive Transitions */
+  --transition-fast: 0.15s ease;
+  --transition-normal: 0.3s ease;
+  --transition-slow: 0.5s ease;
+}
+
+/* Container System */
+.container-fluid {
+  width: 100%;
+  padding-left: var(--spacing-sm);
+  padding-right: var(--spacing-sm);
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.container {
+  width: 100%;
+  padding-left: var(--spacing-sm);
+  padding-right: var(--spacing-sm);
+  margin-left: auto;
+  margin-right: auto;
+  max-width: var(--container-xl);
+}
+
+/* Responsive Grid System */
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  margin-left: calc(var(--spacing-sm) * -0.5);
+  margin-right: calc(var(--spacing-sm) * -0.5);
+}
+
+.col {
+  flex: 1 0 0%;
+  padding-left: calc(var(--spacing-sm) * 0.5);
+  padding-right: calc(var(--spacing-sm) * 0.5);
+}
+
+/* Responsive Utilities */
+.d-none { display: none !important; }
+.d-block { display: block !important; }
+.d-flex { display: flex !important; }
+.d-grid { display: grid !important; }
+
+/* Text Alignment */
+.text-left { text-align: left !important; }
+.text-center { text-align: center !important; }
+.text-right { text-align: right !important; }
+
+/* Responsive Spacing Utilities */
+.p-0 { padding: 0 !important; }
+.p-1 { padding: var(--spacing-xs) !important; }
+.p-2 { padding: var(--spacing-sm) !important; }
+.p-3 { padding: var(--spacing-md) !important; }
+.p-4 { padding: var(--spacing-lg) !important; }
+.p-5 { padding: var(--spacing-xl) !important; }
+
+.m-0 { margin: 0 !important; }
+.m-1 { margin: var(--spacing-xs) !important; }
+.m-2 { margin: var(--spacing-sm) !important; }
+.m-3 { margin: var(--spacing-md) !important; }
+.m-4 { margin: var(--spacing-lg) !important; }
+.m-5 { margin: var(--spacing-xl) !important; }
+
+/* Responsive Breakpoint Classes */
+@media (min-width: 576px) {
+  .container { max-width: var(--container-sm); }
+  .d-sm-none { display: none !important; }
+  .d-sm-block { display: block !important; }
+  .d-sm-flex { display: flex !important; }
+  .text-sm-left { text-align: left !important; }
+  .text-sm-center { text-align: center !important; }
+  .text-sm-right { text-align: right !important; }
+}
+
+@media (min-width: 768px) {
+  .container { max-width: var(--container-md); }
+  .d-md-none { display: none !important; }
+  .d-md-block { display: block !important; }
+  .d-md-flex { display: flex !important; }
+  .text-md-left { text-align: left !important; }
+  .text-md-center { text-align: center !important; }
+  .text-md-right { text-align: right !important; }
+}
+
+@media (min-width: 992px) {
+  .container { max-width: var(--container-lg); }
+  .d-lg-none { display: none !important; }
+  .d-lg-block { display: block !important; }
+  .d-lg-flex { display: flex !important; }
+  .text-lg-left { text-align: left !important; }
+  .text-lg-center { text-align: center !important; }
+  .text-lg-right { text-align: right !important; }
+}
+
+@media (min-width: 1200px) {
+  .container { max-width: var(--container-xl); }
+  .d-xl-none { display: none !important; }
+  .d-xl-block { display: block !important; }
+  .d-xl-flex { display: flex !important; }
+  .text-xl-left { text-align: left !important; }
+  .text-xl-center { text-align: center !important; }
+  .text-xl-right { text-align: right !important; }
+}
+
+@media (min-width: 1400px) {
+  .container { max-width: var(--container-xxl); }
+  .d-xxl-none { display: none !important; }
+  .d-xxl-block { display: block !important; }
+  .d-xxl-flex { display: flex !important; }
+}

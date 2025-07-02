@@ -1,0 +1,44 @@
+trigger:
+  branches:
+    include:
+      - dev-01
+
+pool:
+  vmImage: 'ubuntu-latest'
+
+steps:
+  - task: NodeTool@0
+    inputs:
+      versionSpec: '20.x'
+    displayName: 'Install Node.js'
+
+  - script: |
+      npm install -g yarn
+      yarn install --frozen-lockfile
+    displayName: 'Install Yarn and Dependencies'
+
+  - script: |
+      yarn build
+    displayName: 'Build React App'
+
+  - script: |
+      ls -la $(System.DefaultWorkingDirectory)/build
+    displayName: 'List Build Folder Contents'
+
+  - task: ArchiveFiles@2
+    inputs:
+      rootFolderOrFile: '$(System.DefaultWorkingDirectory)/build'
+      includeRootFolder: false
+      archiveType: 'zip'
+      archiveFile: '$(Build.ArtifactStagingDirectory)/app.zip'
+      replaceExistingArchive: true
+    displayName: 'Archive Build Folder'
+
+  - task: AzureWebApp@1
+    inputs:
+      azureSubscription: 'fteb-devops'
+      appName: 'fteb-website'
+      package: '$(Build.ArtifactStagingDirectory)/app.zip'
+      appType: 'webAppLinux'
+      startUpCommand: 'pm2 serve /home/site/wwwroot --no-daemon --spa'
+    displayName: 'Deploy to Azure App Service'
