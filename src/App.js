@@ -1,0 +1,79 @@
+"use client"
+
+import { BrowserRouter as Router, Routes, Route, useLocation } from "react-router-dom"
+import { useState, useEffect } from "react"
+import "./App.css"
+import Header from "./components/Header/Header"
+import Footer from "./components/Footer/Footer"
+import Resolution from "./pages/Resolution/Resolution"
+import Servicess from "./pages/Servicess/Servicess"
+import Contact from "./pages/Contact/Contact"
+import AzureServices from "./pages/Services/AzureServices"
+import Microsoft365Services from "./pages/Services/Microsoft365Services"
+import Dynamics365Services from "./pages/Services/Dynamics365Services"
+import DevelopmentServices from "./pages/Services/DevelopmentServices"
+import InfrastructureServices from "./pages/Services/InfrastructureServices"
+import SecurityServices from "./pages/Services/SecurityServices.jsx"
+import Turbo360Services from "./pages/Services/Turbo360Services"
+import ErosourceServices from "./pages/Services/ErosourceServices"
+import { routes } from './routes.js'
+
+function ScrollToTop() {
+  const { pathname } = useLocation();
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
+
+  return null;
+}
+
+function App() {
+  const [scrolled, setScrolled] = useState(false)
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 50) {
+        setScrolled(true)
+      } else {
+        setScrolled(false)
+      }
+    }
+
+    window.addEventListener("scroll", handleScroll)
+    return () => {
+      window.removeEventListener("scroll", handleScroll)
+    }
+  }, [])
+
+  return (
+    <Router>
+      <ScrollToTop />
+      <div className="app">
+        <Header scrolled={scrolled} />
+        <Routes>
+          <Route path={routes.home.path} element={<Resolution />} />
+          <Route path={routes.servicess.path} element={<Servicess />} />
+          <Route path={routes.contact.path} element={<Contact />} />
+          <Route path={routes.company.path} element={<Resolution />} />
+          <Route path={routes.elements.path} element={<Resolution />} />
+          <Route path={routes.caseStudies.path} element={<Resolution />} />
+          <Route path={routes.blog.path} element={<Resolution />} />
+          
+          {/* Individual Service Pages */}
+          <Route path={routes.azure.path} element={<AzureServices />} />
+          <Route path={routes.microsoft365.path} element={<Microsoft365Services />} />
+          <Route path={routes.dynamics365.path} element={<Dynamics365Services />} />
+          <Route path={routes.development.path} element={<DevelopmentServices />} />
+          <Route path={routes.infrastructure.path} element={<InfrastructureServices />} />
+          <Route path={routes.security.path} element={<SecurityServices />} />
+          <Route path={routes.turbo360.path} element={<Turbo360Services />} />
+          <Route path={routes.erosource.path} element={<ErosourceServices />} />
+        </Routes>
+        <Footer />
+      </div>
+    </Router>
+  )
+}
+
+export default App

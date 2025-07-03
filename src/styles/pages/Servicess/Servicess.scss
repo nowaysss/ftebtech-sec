@@ -1,0 +1,388 @@
+// Services Page - SCSS with Nested Structure
+.it-services-page {
+  position: relative;
+  padding-top: 0;
+  min-height: 100vh;
+  background-color: var(--color-white);
+
+  // Hero Section
+  .itservices-hero-bg {
+    position: relative;
+    background: linear-gradient(135deg, var(--color-primary) 0%, #003d99 100%);
+    padding: 160px 0 80px;
+    overflow: hidden;
+    color: var(--color-white);
+
+    .itservices-hero-pattern {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+      opacity: 0.1;
+      animation: fadeIn 1s ease;
+    }
+
+    .itservices-hero-content {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    .itservices-title {
+      font-family: var(--font-heading);
+      font-size: clamp(2.5rem, 5vw, 4rem);
+      font-weight: var(--font-weight-bold);
+      color: var(--color-white);
+      margin-bottom: 1.5rem;
+      line-height: 1.2;
+      letter-spacing: -0.02em;
+      opacity: 0;
+      animation: fadeInUp 1s ease forwards;
+      text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+  }
+
+  // Logo Slider Section
+  .product-logos-swiper {
+    background: var(--color-white);
+    padding: 40px 0;
+    margin: -87px auto 40px;
+    max-width: 1400px;
+    border-radius: 11px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+
+    .logo-slide {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 15px;
+    }
+
+    .logo-img {
+      max-height: 60px;
+      width: auto;
+      transition: all 0.3s ease;
+
+      &:hover {
+        opacity: 1;
+        transform: scale(1.05);
+      }
+    }
+  }
+
+  // Services Section
+  .itservices-section {
+    padding: 80px 0 60px;
+    background: linear-gradient(135deg, var(--color-bg-light) 0%, #ffffff 100%);
+    position: relative;
+    overflow: hidden;
+
+    .section-title {
+      text-align: center;
+      max-width: 800px;
+      margin: 0 auto 60px;
+      padding: 0 20px;
+
+      .subtitle {
+        font-family: var(--font-body);
+        display: inline-block;
+        color: var(--color-secondary);
+        font-size: 0.875rem;
+        font-weight: var(--font-weight-bold);
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+        margin-bottom: 1rem;
+        padding: 0.5rem 1rem;
+        background: rgba(102, 161, 231, 0.1);
+        border-radius: 20px;
+      }
+
+      h2 {
+        font-family: var(--font-heading);
+        font-size: clamp(2rem, 4vw, 2.5rem);
+        color: var(--color-primary);
+        line-height: 1.3;
+        margin: 0;
+        font-weight: var(--font-weight-bold);
+      }
+    }
+
+    // Service Cards
+    .services-swiper {
+      padding: 20px 0 60px;
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+
+    .service-slide {
+      height: auto;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: all 0.5s ease;
+
+      &.visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .service-card {
+      background: var(--color-white);
+      padding: 2rem;
+      border-radius: 16px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+      transition: all 0.3s ease;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      overflow: hidden;
+
+      &:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+
+        .icon-container {
+          background: var(--color-primary);
+          transform: scale(1.1);
+
+          .service-icon {
+            color: var(--color-white);
+          }
+        }
+
+        .service-arrow {
+          opacity: 1;
+          transform: translateX(0);
+        }
+      }
+    }
+
+    .icon-container {
+      width: clamp(60px, 8vw, 70px);
+      height: clamp(60px, 8vw, 70px);
+      background: rgba(0, 86, 210, 0.1);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 1.5rem;
+      transition: all 0.3s ease;
+      border: 2px solid rgba(102, 161, 231, 0.2);
+    }
+
+    .service-icon {
+      font-size: clamp(1.5rem, 2.5vw, 1.8rem);
+      color: var(--color-primary);
+      transition: all 0.3s ease;
+    }
+
+    .service-card h3 {
+      font-family: var(--font-heading);
+      font-size: 1.25rem;
+      font-weight: var(--font-weight-bold);
+      color: var(--color-primary);
+      margin-bottom: 1rem;
+      line-height: 1.4;
+    }
+
+    .service-card p {
+      font-family: var(--font-body);
+      font-size: 1rem;
+      color: var(--color-text);
+      line-height: 1.6;
+      margin-bottom: 1.5rem;
+      flex-grow: 1;
+    }
+
+    .service-arrow {
+      display: inline-flex;
+      align-items: center;
+      color: var(--color-primary);
+      font-size: 1.125rem;
+      opacity: 0;
+      transform: translateX(-10px);
+      transition: all 0.3s ease;
+
+      .arrow-icon {
+        font-size: clamp(1rem, 2vw, 1.125rem);
+      }
+    }
+  }
+
+  // Contact Section
+  .contact-info-section {
+    padding: 80px 0;
+    background: var(--color-white);
+    position: relative;
+    overflow: hidden;
+
+    .contact-info-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: center;
+    }
+
+    .contact-info-image {
+      position: relative;
+
+      img {
+        width: 100%;
+        max-width: 500px;
+        border-radius: 20px;
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+      }
+    }
+
+    .contact-info-content {
+      padding: 2rem;
+      background: var(--color-white);
+      border-radius: 20px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
+
+      .rating-value {
+        font-size: 2.5rem;
+        font-weight: var(--font-weight-bold);
+        color: var(--color-primary);
+        margin-bottom: 0.5rem;
+      }
+
+      .rating-stars {
+        color: #ffd700;
+        font-size: 1.25rem;
+        margin-bottom: 0.5rem;
+      }
+
+      .rating-text {
+        color: var(--color-text);
+        margin-bottom: 2rem;
+      }
+
+      .contact-method {
+        display: flex;
+        align-items: center;
+        margin-bottom: 1.5rem;
+        padding: 1rem;
+        background: var(--color-bg-light);
+        border-radius: 12px;
+        transition: all 0.3s ease;
+
+        &:hover {
+          transform: translateX(5px);
+          background: rgba(0, 86, 210, 0.1);
+        }
+
+        .contact-icon {
+          width: clamp(40px, 6vw, 45px);
+          height: clamp(40px, 6vw, 45px);
+          background: var(--color-primary);
+          border-radius: 10px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          color: var(--color-white);
+          margin-right: 1rem;
+          flex-shrink: 0;
+
+          svg {
+            font-size: clamp(1.1rem, 2.2vw, 1.3rem);
+          }
+        }
+
+        .contact-text {
+          flex-grow: 1;
+
+          .contact-label {
+            font-size: 0.875rem;
+            color: var(--color-text);
+            margin-bottom: 0.25rem;
+          }
+
+          .contact-value {
+            font-size: 1.125rem;
+            font-weight: var(--font-weight-semibold);
+            color: var(--color-primary);
+            text-decoration: none;
+          }
+        }
+      }
+    }
+  }
+
+  // Animations
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  // Responsive Design
+  @media (max-width: 992px) {
+    .contact-info-section .contact-info-container {
+      grid-template-columns: 1fr;
+      gap: 40px;
+
+      .contact-info-image {
+        text-align: center;
+      }
+    }
+  }
+
+  @media (max-width: 768px) {
+    .itservices-hero-bg {
+      padding: 120px 0 60px;
+    }
+    
+    .itservices-section .section-title h2 {
+      font-size: 1.75rem;
+    }
+    
+    .contact-info-section .contact-info-content {
+      padding: 1.5rem;
+    }
+  }
+
+  @media (max-width: 576px) {
+    .itservices-section .service-card {
+      padding: 1.5rem;
+    }
+    
+    .icon-container {
+      width: 50px;
+      height: 50px;
+    }
+    
+    .contact-info-section .contact-info-content .rating-value {
+      font-size: 2rem;
+    }
+  }
+
+  // Performance optimizations
+  .service-card, 
+  .product-logos-swiper .swiper-slide, 
+  .contact-info-section {
+    will-change: transform;
+    transform: translateZ(0);
+    backface-visibility: hidden;
+    perspective: 1000px;
+  }
+}
