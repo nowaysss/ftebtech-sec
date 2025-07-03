@@ -5,89 +5,89 @@ import azureLogo from '../../assets/images/ProductLogos/azure.jpg';
 const AzureServices = () => {
   const serviceData = {
     title: "Microsoft Azure Services",
-    subtitle: "Complete Cloud Infrastructure Solutions",
-    description: "Transform your business with enterprise-grade Azure cloud solutions. From migration to optimization, we provide end-to-end cloud services that ensure scalability, security, and cost-effectiveness.",
+    subtitle: "Complete Azure Cloud Infrastructure Solutions",
+    description: "Transform your business with enterprise-grade Azure cloud solutions. From migration to optimization, we provide end-to-end Azure services that ensure scalability, security, and cost-effectiveness.",
     logo: azureLogo,
     heroGradient: "linear-gradient(135deg, #0078d4 0%, #005a9e 100%)",
     
     stats: [
-      { number: "500+", label: "Cloud Migrations" },
+      { number: "300+", label: "Azure Migrations" },
       { number: "99.9%", label: "Uptime SLA" },
-      { number: "40%", label: "Cost Reduction" }
+      { number: "35%", label: "Cost Reduction" }
     ],
 
     services: [
       {
-        title: "Cloud Migration & Strategy",
-        description: "Seamless migration of your existing infrastructure to Azure with minimal downtime and maximum efficiency.",
-        features: ["Assessment & Planning", "Data Migration", "Application Modernization", "Hybrid Cloud Setup"]
+        title: "Azure Infrastructure Services",
+        description: "Complete Azure IaaS solutions including virtual machines, networking, and storage with high availability.",
+        features: ["Azure Virtual Machines", "Virtual Networks", "Load Balancers", "Azure Storage", "Backup & Recovery", "Site Recovery"]
       },
       {
-        title: "Infrastructure as a Service (IaaS)",
-        description: "Scalable virtual machines, networks, and storage solutions tailored to your business requirements.",
-        features: ["Virtual Machines", "Virtual Networks", "Load Balancers", "Storage Solutions"]
+        title: "Azure Platform Services",
+        description: "Leverage Azure PaaS offerings for faster development and deployment with managed services.",
+        features: ["Azure App Service", "Azure SQL Database", "Azure Functions", "Azure Logic Apps", "API Management", "Service Bus"]
       },
       {
-        title: "Platform as a Service (PaaS)",
-        description: "Accelerate development with managed services including databases, web apps, and container orchestration.",
-        features: ["Azure App Service", "Azure SQL Database", "Azure Kubernetes Service", "Azure Functions"]
+        title: "Azure DevOps & Automation",
+        description: "Streamline development with Azure DevOps, CI/CD pipelines, and infrastructure automation.",
+        features: ["Azure DevOps", "Azure Pipelines", "ARM Templates", "Azure Resource Manager", "PowerShell DSC", "Azure Automation"]
       },
       {
-        title: "DevOps & Automation",
-        description: "Streamline your development lifecycle with CI/CD pipelines and infrastructure as code.",
-        features: ["Azure DevOps", "GitHub Actions", "Terraform", "ARM Templates"]
+        title: "Azure Security & Compliance",
+        description: "Enterprise-grade security with Azure Security Center and comprehensive compliance management.",
+        features: ["Azure Security Center", "Azure Sentinel", "Key Vault", "Azure AD", "Conditional Access", "Compliance Manager"]
       },
       {
-        title: "Security & Compliance",
-        description: "Enterprise-grade security with Azure Security Center and compliance management.",
-        features: ["Azure Security Center", "Key Vault", "Azure AD", "Compliance Management"]
+        title: "Azure AI & Analytics",
+        description: "Harness the power of Azure AI and analytics services for intelligent business insights.",
+        features: ["Azure Machine Learning", "Cognitive Services", "Azure Synapse", "Power BI", "Azure Data Factory", "Stream Analytics"]
       },
       {
-        title: "Monitoring & Optimization",
-        description: "Continuous monitoring and cost optimization to ensure peak performance and efficiency.",
-        features: ["Azure Monitor", "Cost Management", "Performance Tuning", "Resource Optimization"]
+        title: "Azure Monitoring & Management",
+        description: "Comprehensive monitoring and management tools for optimal Azure performance and cost control.",
+        features: ["Azure Monitor", "Log Analytics", "Application Insights", "Cost Management", "Azure Advisor", "Resource Health"]
       }
     ],
 
     benefits: [
       {
-        title: "Scalability",
-        description: "Scale resources up or down based on demand with automatic scaling capabilities."
+        title: "Enterprise Scalability",
+        description: "Scale resources up or down based on demand with Azure's global infrastructure and auto-scaling capabilities."
       },
       {
         title: "Cost Efficiency",
-        description: "Pay only for what you use with flexible pricing models and cost optimization tools."
+        description: "Optimize costs with Azure's flexible pricing models, reserved instances, and intelligent cost management tools."
       },
       {
-        title: "Security",
-        description: "Enterprise-grade security with built-in threat protection and compliance certifications."
+        title: "Advanced Security",
+        description: "Multi-layered security with Azure Security Center, threat protection, and compliance certifications."
       },
       {
-        title: "Reliability",
-        description: "99.9% uptime SLA with global data centers and disaster recovery capabilities."
+        title: "High Availability",
+        description: "99.9% uptime SLA with global data centers, availability zones, and disaster recovery capabilities."
       }
     ],
 
     process: [
       {
         step: "01",
-        title: "Assessment",
-        description: "Comprehensive analysis of your current infrastructure and business requirements."
+        title: "Azure Assessment",
+        description: "Comprehensive analysis of your current infrastructure and Azure migration requirements."
       },
       {
         step: "02",
-        title: "Strategy",
-        description: "Develop a customized cloud migration and implementation strategy."
+        title: "Azure Strategy",
+        description: "Develop a customized Azure cloud strategy and implementation roadmap."
       },
       {
         step: "03",
-        title: "Implementation",
-        description: "Execute the migration with minimal disruption to your business operations."
+        title: "Azure Implementation",
+        description: "Execute the Azure migration and deployment with minimal disruption to business operations."
       },
       {
         step: "04",
-        title: "Optimization",
-        description: "Continuous monitoring and optimization for performance and cost efficiency."
+        title: "Azure Optimization",
+        description: "Continuous monitoring and optimization for performance, security, and cost efficiency."
       }
     ],
 

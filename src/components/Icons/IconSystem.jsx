@@ -24,8 +24,6 @@ import {
   faCheckCircle,
   faExclamationTriangle,
   faInfoCircle,
-  faMicrosoft,
-  faAws
 } from '@fortawesome/free-solid-svg-icons';
 import { faLinkedinIn } from '@fortawesome/free-brands-svg-icons';
 

@@ -8,7 +8,10 @@ import Footer from "./components/Footer/Footer"
 import Resolution from "./pages/Resolution/Resolution"
 import Servicess from "./pages/Servicess/Servicess"
 import Contact from "./pages/Contact/Contact"
+import CloudServices from "./pages/Services/CloudServices"
 import AzureServices from "./pages/Services/AzureServices"
+import AWSServices from "./pages/Services/AWSServices"
+import GCPServices from "./pages/Services/GCPServices"
 import Microsoft365Services from "./pages/Services/Microsoft365Services"
 import Dynamics365Services from "./pages/Services/Dynamics365Services"
 import DevelopmentServices from "./pages/Services/DevelopmentServices"
@@ -60,8 +63,13 @@ function App() {
           <Route path={routes.caseStudies.path} element={<Resolution />} />
           <Route path={routes.blog.path} element={<Resolution />} />
           
-          {/* Individual Service Pages */}
+          {/* Cloud Services */}
+          <Route path={routes.cloudServices.path} element={<CloudServices />} />
           <Route path={routes.azure.path} element={<AzureServices />} />
+          <Route path={routes.aws.path} element={<AWSServices />} />
+          <Route path={routes.gcp.path} element={<GCPServices />} />
+          
+          {/* Other Individual Service Pages */}
           <Route path={routes.microsoft365.path} element={<Microsoft365Services />} />
           <Route path={routes.dynamics365.path} element={<Dynamics365Services />} />
           <Route path={routes.development.path} element={<DevelopmentServices />} />

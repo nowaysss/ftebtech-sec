@@ -30,12 +30,12 @@ const ServiceDescription = () => {
 
   const services = [
     {
-      id: 'azure',
-      title: 'Microsoft Azure Services',
-      description: 'Complete cloud infrastructure solutions with Azure. From migration to optimization, we handle your entire cloud journey with enterprise-grade security and scalability.',
+      id: 'cloud-services',
+      title: 'Cloud Services (Azure, AWS, GCP)',
+      description: 'Complete multi-cloud infrastructure solutions. From migration to optimization, we handle your entire cloud journey across Azure, AWS, and Google Cloud with enterprise-grade security and scalability.',
       logo: azureLogo,
-      features: ['Cloud Migration', 'Infrastructure Setup', 'DevOps Integration', 'Cost Optimization'],
-      path: '/services/azure'
+      features: ['Multi-Cloud Strategy', 'Cloud Migration', 'Infrastructure Setup', 'Cost Optimization'],
+      path: '/services/cloud-services'
     },
     {
       id: 'microsoft365',
