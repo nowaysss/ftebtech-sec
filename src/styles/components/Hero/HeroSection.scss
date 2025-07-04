@@ -144,7 +144,7 @@
         transform-origin: center center;
       }
 
-      // Image Positioning - Desktop (unchanged)
+      // Original Image Positioning - Desktop
       &.headphones {
         top: -15%;
         left: 26%;
@@ -230,6 +230,64 @@
           border-radius: 15px;
         }
       }
+
+      // New Images Positioning - Desktop
+      &.devops {
+        top: 5%;
+        left: 15%;
+        --x-offset-1: -6px;
+        --y-offset-1: 10px;
+        --x-offset-2: 8px;
+        --y-offset-2: -5px;
+        --x-offset-3: -4px;
+        --y-offset-3: 12px;
+
+        .tech-image {
+          width: 180px;
+          height: 180px;
+          object-fit: cover;
+          border-radius: 20px;
+          box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+        }
+      }
+
+      &.azure {
+        top: 60%;
+        left: 8%;
+        --x-offset-1: 12px;
+        --y-offset-1: -8px;
+        --x-offset-2: -6px;
+        --y-offset-2: 10px;
+        --x-offset-3: 9px;
+        --y-offset-3: -6px;
+
+        .tech-image {
+          width: 160px;
+          height: 160px;
+          object-fit: cover;
+          border-radius: 18px;
+          box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2);
+        }
+      }
+
+      &.aws {
+        top: 35%;
+        left: 5%;
+        --x-offset-1: -9px;
+        --y-offset-1: 6px;
+        --x-offset-2: 11px;
+        --y-offset-2: -9px;
+        --x-offset-3: -7px;
+        --y-offset-3: 8px;
+
+        .tech-image {
+          width: 140px;
+          height: 140px;
+          object-fit: cover;
+          border-radius: 16px;
+          box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+        }
+      }
     }
   }
 
@@ -271,6 +329,43 @@
     }
     100% {
       transform: scale(1) translate(0, 0) rotate(0deg);
+    }
+  }
+
+  // Responsive Design - Large Desktop (1400px+)
+  @media (min-width: 1400px) {
+    .images-container {
+      .image-wrapper {
+        &.devops {
+          top: 8%;
+          left: 18%;
+          
+          .tech-image {
+            width: 200px;
+            height: 200px;
+          }
+        }
+
+        &.azure {
+          top: 65%;
+          left: 12%;
+
+          .tech-image {
+            width: 180px;
+            height: 180px;
+          }
+        }
+
+        &.aws {
+          top: 38%;
+          left: 8%;
+
+          .tech-image {
+            width: 160px;
+            height: 160px;
+          }
+        }
+      }
     }
   }
 
@@ -320,6 +415,37 @@
 
           img {
             width: clamp(280px, 30vw, 320px);
+          }
+        }
+
+        // New images responsive adjustments
+        &.devops {
+          top: 8%;
+          left: 12%;
+
+          .tech-image {
+            width: clamp(140px, 15vw, 160px);
+            height: clamp(140px, 15vw, 160px);
+          }
+        }
+
+        &.azure {
+          top: 58%;
+          left: 5%;
+
+          .tech-image {
+            width: clamp(120px, 13vw, 140px);
+            height: clamp(120px, 13vw, 140px);
+          }
+        }
+
+        &.aws {
+          top: 32%;
+          left: 2%;
+
+          .tech-image {
+            width: clamp(100px, 11vw, 120px);
+            height: clamp(100px, 11vw, 120px);
           }
         }
       }
@@ -374,6 +500,37 @@
             width: clamp(250px, 28vw, 300px);
           }
         }
+
+        // New images for large tablets
+        &.devops {
+          top: 6%;
+          left: 10%;
+
+          .tech-image {
+            width: clamp(120px, 13vw, 140px);
+            height: clamp(120px, 13vw, 140px);
+          }
+        }
+
+        &.azure {
+          top: 55%;
+          left: 3%;
+
+          .tech-image {
+            width: clamp(100px, 11vw, 120px);
+            height: clamp(100px, 11vw, 120px);
+          }
+        }
+
+        &.aws {
+          top: 30%;
+          left: 1%;
+
+          .tech-image {
+            width: clamp(90px, 10vw, 110px);
+            height: clamp(90px, 10vw, 110px);
+          }
+        }
       }
     }
   }
@@ -405,7 +562,7 @@
 
     .images-container {
       position: relative;
-      height: 350px;
+      height: 400px;
       margin-top: 30px;
       display: flex;
       align-items: center;
@@ -429,11 +586,30 @@
           }
         }
 
+        // Show only one new tech image on tablet
+        &.devops {
+          position: absolute;
+          top: 10%;
+          left: 10%;
+          z-index: 1;
+
+          .tech-image {
+            width: clamp(80px, 12vw, 100px);
+            height: clamp(80px, 12vw, 100px);
+          }
+
+          &.loaded {
+            animation: floatTablet 7s ease-in-out infinite;
+          }
+        }
+
         // Hide other images on tablet
         &.headphones,
         &.mouse,
         &.watch,
-        &.keyboard {
+        &.keyboard,
+        &.azure,
+        &.aws {
           display: none;
         }
       }
@@ -520,11 +696,14 @@
           }
         }
 
-        // Hide other images on mobile
+        // Hide all other images on mobile for clean look
         &.headphones,
         &.mouse,
         &.watch,
-        &.keyboard {
+        &.keyboard,
+        &.devops,
+        &.azure,
+        &.aws {
           display: none;
         }
       }
@@ -597,6 +776,11 @@
 
       .image-wrapper.laptop .laptop-image {
         width: clamp(300px, 60vw, 400px);
+      }
+
+      .image-wrapper.devops .tech-image {
+        width: clamp(60px, 8vw, 80px);
+        height: clamp(60px, 8vw, 80px);
       }
     }
   }
