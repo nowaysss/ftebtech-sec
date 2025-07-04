@@ -121,6 +121,125 @@
   text-decoration: none;
 }
 
+/* Multi-Cloud Logos Section */
+.hero-logo-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.multi-cloud-logos {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  align-items: center;
+  animation: floatLogos 8s ease-in-out infinite;
+}
+
+.cloud-logo-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  padding: 20px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  transition: all 0.4s ease;
+  min-width: 140px;
+}
+
+.cloud-logo-item:hover {
+  transform: translateY(-8px) scale(1.05);
+  background: rgba(255, 255, 255, 0.2);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+}
+
+.cloud-logo-item img {
+  width: 80px;
+  height: 80px;
+  object-fit: contain;
+  border-radius: 12px;
+  background: white;
+  padding: 8px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+.cloud-logo-item:hover img {
+  transform: scale(1.1);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+}
+
+.logo-label {
+  font-family: var(--font-body);
+  font-size: 14px;
+  font-weight: 600;
+  color: white;
+  text-align: center;
+  letter-spacing: 0.5px;
+}
+
+/* Individual logo animations */
+.azure-logo {
+  animation-delay: 0s;
+}
+
+.aws-logo {
+  animation-delay: 0.5s;
+}
+
+.gcp-logo {
+  animation-delay: 1s;
+}
+
+/* Floating animation for multi-cloud logos */
+@keyframes floatLogos {
+  0%, 100% {
+    transform: translateY(0) rotate(0deg);
+  }
+  25% {
+    transform: translateY(-10px) rotate(1deg);
+  }
+  50% {
+    transform: translateY(-5px) rotate(-0.5deg);
+  }
+  75% {
+    transform: translateY(-15px) rotate(0.5deg);
+  }
+}
+
+/* Individual logo floating animations */
+.azure-logo {
+  animation: floatAzure 6s ease-in-out infinite;
+}
+
+.aws-logo {
+  animation: floatAWS 7s ease-in-out infinite;
+}
+
+.gcp-logo {
+  animation: floatGCP 8s ease-in-out infinite;
+}
+
+@keyframes floatAzure {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  33% { transform: translateY(-8px) rotate(1deg); }
+  66% { transform: translateY(-4px) rotate(-0.5deg); }
+}
+
+@keyframes floatAWS {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  40% { transform: translateY(-12px) rotate(-1deg); }
+  80% { transform: translateY(-6px) rotate(0.5deg); }
+}
+
+@keyframes floatGCP {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  50% { transform: translateY(-10px) rotate(1.5deg); }
+}
+
 .hero-logo {
   text-align: center;
 }
@@ -682,6 +801,20 @@ padding: 30px;}
   .services-grid {
     grid-template-columns: repeat(2, 1fr);
   }
+
+  .multi-cloud-logos {
+    gap: 20px;
+  }
+
+  .cloud-logo-item {
+    min-width: 120px;
+    padding: 15px;
+  }
+
+  .cloud-logo-item img {
+    width: 70px;
+    height: 70px;
+  }
 }
 
 @media (max-width: 992px) {
@@ -748,6 +881,26 @@ padding: 30px;}
     flex-direction: column;
     gap: 20px;
   }
+
+  .multi-cloud-logos {
+    flex-direction: row;
+    gap: 15px;
+    justify-content: center;
+  }
+
+  .cloud-logo-item {
+    min-width: 100px;
+    padding: 12px;
+  }
+
+  .cloud-logo-item img {
+    width: 60px;
+    height: 60px;
+  }
+
+  .logo-label {
+    font-size: 12px;
+  }
 }
 
 @media (max-width: 768px) {
@@ -799,6 +952,25 @@ padding: 30px;}
   .service-description {
     font-size: 0.9rem;
   }
+
+  .multi-cloud-logos {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .cloud-logo-item {
+    min-width: 140px;
+    padding: 15px;
+  }
+
+  .cloud-logo-item img {
+    width: 70px;
+    height: 70px;
+  }
+
+  .logo-label {
+    font-size: 13px;
+  }
 }
 
 @media (max-width: 480px) {
@@ -834,5 +1006,45 @@ padding: 30px;}
   
   .service-description {
     font-size: 0.85rem;
+  }
+
+  .cloud-logo-item {
+    min-width: 120px;
+    padding: 12px;
+  }
+
+  .cloud-logo-item img {
+    width: 60px;
+    height: 60px;
+  }
+
+  .logo-label {
+    font-size: 12px;
+  }
+}
+
+/* Reduced Motion Support */
+@media (prefers-reduced-motion: reduce) {
+  .multi-cloud-logos,
+  .cloud-logo-item,
+  .azure-logo,
+  .aws-logo,
+  .gcp-logo {
+    animation: none;
+  }
+
+  .cloud-logo-item:hover {
+    transform: none;
+  }
+}
+
+/* High Contrast Mode */
+@media (prefers-contrast: high) {
+  .cloud-logo-item {
+    border: 2px solid white;
+  }
+
+  .cloud-logo-item img {
+    border: 1px solid black;
   }
 }

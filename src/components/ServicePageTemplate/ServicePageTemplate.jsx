@@ -62,6 +62,9 @@ const ServicePageTemplate = ({ data }) => {
     }
   ];
 
+  // Check if this is the multi-cloud services page
+  const isMultiCloudPage = data.title === "Multi-Cloud Services";
+
   return (
     <div className="service-page">
       {/* Hero Section */}
@@ -89,8 +92,27 @@ const ServicePageTemplate = ({ data }) => {
               </div>
             </div>
             
-            <div className="hero-logo">
-              <img src={data.logo} alt={`${data.title} Logo`} />
+            <div className="hero-logo-section">
+              {isMultiCloudPage ? (
+                <div className="multi-cloud-logos">
+                  <div className="cloud-logo-item azure-logo">
+                    <img src="/src/assets/images/ProductLogos/azure.jpg" alt="Microsoft Azure" />
+                    <span className="logo-label">Azure</span>
+                  </div>
+                  <div className="cloud-logo-item aws-logo">
+                    <img src="/src/assets/images/ProductLogos/aws.jpg" alt="Amazon Web Services" />
+                    <span className="logo-label">AWS</span>
+                  </div>
+                  <div className="cloud-logo-item gcp-logo">
+                    <img src="/src/assets/images/ProductLogos/googlecloud.jpg" alt="Google Cloud Platform" />
+                    <span className="logo-label">GCP</span>
+                  </div>
+                </div>
+              ) : (
+                <div className="hero-logo">
+                  <img src={data.logo} alt={`${data.title} Logo`} />
+                </div>
+              )}
             </div>
           </div>
           
