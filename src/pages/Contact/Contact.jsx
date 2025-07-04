@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Container, Row, Col, Form, Button, Alert, Card, ButtonGroup } from 'react-bootstrap';
+import { Container, Row, Col, Form, Button, Alert, Card, Modal } from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { 
   faMapMarkerAlt, 
@@ -11,14 +11,18 @@ import {
   faExclamationTriangle,
   faPaperPlane,
   faDesktop,
-  faGoogleDrive
+  faGoogleDrive,
+  faTimes
 } from '@fortawesome/free-solid-svg-icons';
 import {
   faLinkedinIn,
   faTwitter,
   faFacebookF,
   faInstagram,
-  faGoogle
+  faGoogle,
+  faMicrosoft,
+  faYahoo,
+  faApple
 } from '@fortawesome/free-brands-svg-icons';
 import './Contact.scss';
 
@@ -39,7 +43,7 @@ const Contact = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState(null);
   const [isFormValid, setIsFormValid] = useState(false);
-  const [emailClientOption, setEmailClientOption] = useState('default'); // 'default' or 'gmail'
+  const [showEmailModal, setShowEmailModal] = useState(false);
 
   const contactInfo = [
     {
@@ -92,6 +96,45 @@ const Contact = () => {
     { icon: faTwitter, url: 'https://twitter.com/ftebtech', label: 'Twitter' },
     { icon: faFacebookF, url: 'https://facebook.com/ftebtech', label: 'Facebook' },
     { icon: faInstagram, url: 'https://instagram.com/ftebtech', label: 'Instagram' }
+  ];
+
+  const emailClients = [
+    {
+      name: 'Outlook',
+      icon: faMicrosoft,
+      color: '#0078d4',
+      action: 'outlook'
+    },
+    {
+      name: 'Gmail',
+      icon: faGoogle,
+      color: '#ea4335',
+      action: 'gmail'
+    },
+    {
+      name: 'Yahoo Mail',
+      icon: faYahoo,
+      color: '#6001d2',
+      action: 'yahoo'
+    },
+    {
+      name: 'Apple Mail',
+      icon: faApple,
+      color: '#000000',
+      action: 'apple'
+    },
+    {
+      name: 'Default Email App',
+      icon: faDesktop,
+      color: '#6c757d',
+      action: 'default'
+    },
+    {
+      name: 'Other Email Client',
+      icon: faEnvelope,
+      color: '#28a745',
+      action: 'other'
+    }
   ];
 
   // Validation rules
@@ -220,18 +263,62 @@ ${formData.phone}`;
     return { subject, body };
   };
 
-  // Open default email client
-  const openDefaultEmailClient = () => {
+  // Handle email client selection
+  const handleEmailClientSelect = (clientAction) => {
     const { subject, body } = generateEmailContent();
-    const mailtoLink = `mailto:Connect@ftebtech.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-    window.location.href = mailtoLink;
-  };
+    const encodedSubject = encodeURIComponent(subject);
+    const encodedBody = encodeURIComponent(body);
+    
+    let emailUrl = '';
 
-  // Open Gmail in browser
-  const openGmailInBrowser = () => {
-    const { subject, body } = generateEmailContent();
-    const gmailUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=Connect@ftebtech.com&su=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-    window.open(gmailUrl, '_blank');
+    switch (clientAction) {
+      case 'gmail':
+        emailUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=Connect@ftebtech.com&su=${encodedSubject}&body=${encodedBody}`;
+        window.open(emailUrl, '_blank');
+        break;
+      
+      case 'outlook':
+        emailUrl = `https://outlook.live.com/mail/0/deeplink/compose?to=Connect@ftebtech.com&subject=${encodedSubject}&body=${encodedBody}`;
+        window.open(emailUrl, '_blank');
+        break;
+      
+      case 'yahoo':
+        emailUrl = `https://compose.mail.yahoo.com/?to=Connect@ftebtech.com&subject=${encodedSubject}&body=${encodedBody}`;
+        window.open(emailUrl, '_blank');
+        break;
+      
+      case 'apple':
+      case 'default':
+      case 'other':
+        emailUrl = `mailto:Connect@ftebtech.com?subject=${encodedSubject}&body=${encodedBody}`;
+        window.location.href = emailUrl;
+        break;
+      
+      default:
+        emailUrl = `mailto:Connect@ftebtech.com?subject=${encodedSubject}&body=${encodedBody}`;
+        window.location.href = emailUrl;
+        break;
+    }
+
+    setShowEmailModal(false);
+    setSubmitStatus('success');
+    
+    // Reset form after successful submission
+    setTimeout(() => {
+      setFormData({
+        firstName: '',
+        lastName: '',
+        email: '',
+        phone: '',
+        company: '',
+        service: '',
+        budget: '',
+        message: '',
+        agreeToTerms: false
+      });
+      setFormErrors({});
+      setSubmitStatus(null);
+    }, 3000);
   };
 
   // Handle form submission
@@ -251,31 +338,8 @@ ${formData.phone}`;
       // Simulate processing time
       await new Promise(resolve => setTimeout(resolve, 1000));
       
-      // Open email client based on user's choice
-      if (emailClientOption === 'gmail') {
-        openGmailInBrowser();
-      } else {
-        openDefaultEmailClient();
-      }
-      
-      setSubmitStatus('success');
-      
-      // Reset form after successful submission
-      setTimeout(() => {
-        setFormData({
-          firstName: '',
-          lastName: '',
-          email: '',
-          phone: '',
-          company: '',
-          service: '',
-          budget: '',
-          message: '',
-          agreeToTerms: false
-        });
-        setFormErrors({});
-        setSubmitStatus(null);
-      }, 3000);
+      // Show email client selection modal
+      setShowEmailModal(true);
       
     } catch (error) {
       setSubmitStatus('error');
@@ -339,32 +403,7 @@ ${formData.phone}`;
                 <Card.Body>
                   <div className="form-header">
                     <h2>Send Us a Message</h2>
-                    <p>Fill out the form below and we'll open your email client with the message pre-filled.</p>
-                  </div>
-
-                  {/* Email Client Selection */}
-                  <div className="email-client-selection mb-4">
-                    <h6 className="mb-3">Choose how to send your message:</h6>
-                    <ButtonGroup className="w-100">
-                      <Button
-                        variant={emailClientOption === 'default' ? 'primary' : 'outline-primary'}
-                        onClick={() => setEmailClientOption('default')}
-                        className="d-flex align-items-center justify-content-center gap-2"
-                      >
-                        <FontAwesomeIcon icon={faDesktop} />
-                        Default Email App
-                        <small className="d-block text-muted">(Outlook, Mail, etc.)</small>
-                      </Button>
-                      <Button
-                        variant={emailClientOption === 'gmail' ? 'primary' : 'outline-primary'}
-                        onClick={() => setEmailClientOption('gmail')}
-                        className="d-flex align-items-center justify-content-center gap-2"
-                      >
-                        <FontAwesomeIcon icon={faGoogle} />
-                        Gmail in Browser
-                        <small className="d-block text-muted">(Opens in new tab)</small>
-                      </Button>
-                    </ButtonGroup>
+                    <p>Fill out the form below and we'll help you choose the best email client to send your message.</p>
                   </div>
 
                   {submitStatus === 'success' && (
@@ -551,24 +590,15 @@ ${formData.phone}`;
                           {isSubmitting ? (
                             <>
                               <span className="spinner-border spinner-border-sm me-2" />
-                              Opening Email Client...
+                              Processing...
                             </>
                           ) : (
                             <>
                               <FontAwesomeIcon icon={faPaperPlane} className="me-2" />
-                              Open {emailClientOption === 'gmail' ? 'Gmail' : 'Email Client'}
+                              Send Message
                             </>
                           )}
                         </Button>
-                        
-                        <div className="mt-3">
-                          <small className="text-muted">
-                            {emailClientOption === 'gmail' 
-                              ? 'This will open Gmail in a new browser tab with your message pre-filled.'
-                              : 'This will open your default email application (like Outlook, Mail, etc.) with your message pre-filled.'
-                            }
-                          </small>
-                        </div>
                       </Col>
                     </Row>
                   </Form>
@@ -646,6 +676,55 @@ ${formData.phone}`;
           </Row>
         </Container>
       </section>
+
+      {/* Email Client Selection Modal */}
+      <Modal 
+        show={showEmailModal} 
+        onHide={() => setShowEmailModal(false)}
+        centered
+        size="lg"
+        className="email-client-modal"
+      >
+        <Modal.Header>
+          <Modal.Title>
+            <FontAwesomeIcon icon={faEnvelope} className="me-2" />
+            Choose Your Email Client
+          </Modal.Title>
+          <Button 
+            variant="link" 
+            onClick={() => setShowEmailModal(false)}
+            className="btn-close-custom"
+          >
+            <FontAwesomeIcon icon={faTimes} />
+          </Button>
+        </Modal.Header>
+        <Modal.Body>
+          <p className="modal-description">
+            Select your preferred email client to send your message. We'll open it with your message pre-filled.
+          </p>
+          <div className="email-clients-grid">
+            {emailClients.map((client, index) => (
+              <button
+                key={index}
+                className="email-client-option"
+                onClick={() => handleEmailClientSelect(client.action)}
+                style={{ '--client-color': client.color }}
+              >
+                <div className="client-icon">
+                  <FontAwesomeIcon icon={client.icon} />
+                </div>
+                <span className="client-name">{client.name}</span>
+              </button>
+            ))}
+          </div>
+          <div className="modal-note">
+            <small className="text-muted">
+              <FontAwesomeIcon icon={faInfoCircle} className="me-1" />
+              If your preferred email client doesn't open automatically, please check your browser's popup settings.
+            </small>
+          </div>
+        </Modal.Body>
+      </Modal>
 
       {/* Map Section */}
       <section className="map-section">
