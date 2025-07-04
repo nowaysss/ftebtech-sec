@@ -719,7 +719,7 @@ ${formData.phone}`;
           </div>
           <div className="modal-note">
             <small className="text-muted">
-              <FontAwesomeIcon icon={faInfoCircle} className="me-1" />
+              <FontAwesomeIcon icon={faCheckCircle,} className="me-1" />
               If your preferred email client doesn't open automatically, please check your browser's popup settings.
             </small>
           </div>
