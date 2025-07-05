@@ -1,0 +1,193 @@
+.icon {
+display: inline-block;
+vertical-align: middle;
+flex-shrink: 0;
+transition: all 0.2s ease;
+}
+
+.icon-xs { width: 16px; height: 16px; }
+.icon-sm { width: 20px; height: 20px; }
+.icon-md { width: 24px; height: 24px; }
+.icon-lg { width: 32px; height: 32px; }
+.icon-xl { width: 40px; height: 40px; }
+.icon-2xl { width: 48px; height: 48px; }
+
+.icon-primary { color: var(--color-primary); }
+.icon-secondary { color: var(--color-secondary); }
+.icon-accent { color: var(--color-accent); }
+.icon-success { color: #10b981; }
+.icon-warning { color: #f59e0b; }
+.icon-error { color: #ef4444; }
+.icon-muted { color: var(--color-muted); }
+.icon-white { color: white; }
+
+.icon-container {
+display: inline-flex;
+align-items: center;
+justify-content: center;
+border-radius: var(--border-radius-md);
+transition: all 0.2s ease;
+}
+
+.icon-container-sm {
+width: 57px;
+height: 56px;
+padding: 4px;
+}
+
+.icon-container-md {
+width: 48px;
+height: 48px;
+padding: 8px;
+}
+
+.icon-container-lg {
+width: 64px;
+height: 64px;
+padding: 12px;
+}
+
+.icon-container-xl {
+width: 80px;
+height: 80px;
+padding: 16px;
+}
+
+.icon-container-primary {
+background: rgba(0, 86, 210, 0.1);
+color: var(--color-primary);
+border: 2px solid rgba(0, 86, 210, 0.2);
+}
+
+.icon-container-primary:hover {
+background: var(--color-primary);
+color: white;
+transform: translateY(-2px);
+box-shadow: 0 4px 12px rgba(0, 86, 210, 0.3);
+}
+
+.icon-container-secondary {
+background: rgba(102, 161, 231, 0.1);
+color: var(--color-secondary);
+border: 2px solid rgba(102, 161, 231, 0.2);
+}
+
+.icon-container-secondary:hover {
+background: var(--color-secondary);
+color: white;
+transform: translateY(-2px);
+box-shadow: 0 4px 12px rgba(102, 161, 231, 0.3);
+}
+
+.icon-container-accent {
+background: rgba(255, 165, 0, 0.1);
+color: var(--color-accent);
+border: 2px solid rgba(255, 165, 0, 0.2);
+}
+
+.icon-container-accent:hover {
+background: var(--color-accent);
+color: white;
+transform: translateY(-2px);
+box-shadow: 0 4px 12px rgba(255, 165, 0, 0.3);
+}
+
+.icon-container-white {
+background: white;
+color: var(--color-primary);
+border: 2px solid rgba(0, 0, 0, 0.1);
+box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.icon-container-white:hover {
+transform: translateY(-2px);
+box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+}
+
+.icon-button {
+display: inline-flex;
+align-items: center;
+justify-content: center;
+background: none;
+border: none;
+cursor: pointer;
+border-radius: var(--border-radius-sm);
+transition: all 0.2s ease;
+min-width: var(--touch-target-min);
+min-height: var(--touch-target-min);
+}
+
+.icon-button:hover {
+background: rgba(0, 86, 210, 0.1);
+color: var(--color-primary);
+}
+
+.icon-button:focus {
+outline: 2px solid var(--color-secondary);
+outline-offset: 2px;
+}
+
+.icon-with-text {
+display: inline-flex;
+align-items: center;
+gap: 8px;
+}
+
+.icon-with-text-vertical {
+display: inline-flex;
+flex-direction: column;
+align-items: center;
+gap: 8px;
+text-align: center;
+}
+
+@media (max-width: 768px) {
+.icon-container-lg {
+width: 56px;
+height: 56px;
+padding: 10px;
+}
+
+.icon-container-xl {
+width: 72px;
+height: 72px;
+padding: 14px;
+}
+}
+
+@media (max-width: 576px) {
+.icon-container-lg {
+width: 48px;
+height: 48px;
+padding: 8px;
+}
+
+.icon-container-xl {
+width: 64px;
+height: 64px;
+padding: 12px;
+}
+}
+
+@media (prefers-reduced-motion: reduce) {
+.icon,
+.icon-container,
+.icon-button {
+transition: none;
+}
+
+.icon-container:hover,
+.icon-button:hover {
+transform: none;
+}
+}
+
+@media (prefers-contrast: high) {
+.icon-container {
+border-width: 3px;
+}
+
+.icon-button {
+border: 2px solid currentColor;
+}
+}
