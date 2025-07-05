@@ -122,7 +122,7 @@
     }
   }
 
-  // Images Container
+  // Images Container - Responsive Layout
   .images-container {
     position: absolute;
     top: 0;
@@ -144,141 +144,29 @@
         transform-origin: center center;
       }
 
-      // Original Image Positioning - Desktop
-      &.headphones {
-        top: -15%;
-        left: 26%;
-        --x-offset-1: 8px;
-        --y-offset-1: -12px;
-        --x-offset-2: -5px;
-        --y-offset-2: 8px;
-        --x-offset-3: 10px;
-        --y-offset-3: -5px;
-
-        img {
-          width: 280px;
-          height: auto;
-          border-radius: 15px;
-        }
+      // Base image styles
+      img {
+        border-radius: 15px;
+        max-width: 100%;
+        height: auto;
       }
 
-      &.laptop {
-        top: 20%;
-        right: 18%;
-        --x-offset-1: -10px;
-        --y-offset-1: 8px;
-        --x-offset-2: 7px;
-        --y-offset-2: -6px;
-        --x-offset-3: -5px;
-        --y-offset-3: 12px;
-
-        .laptop-image {
-          width: 700px;
-          max-width: 100%;
-          height: auto;
-          border-radius: 20px;
-        }
+      .tech-image {
+        border-radius: 20px;
+        max-width: 100%;
+        height: auto;
       }
 
-      &.mouse {
-        top: -0%;
-        right: 1%;
-        --x-offset-1: 12px;
-        --y-offset-1: 15px;
-        --x-offset-2: -10px;
-        --y-offset-2: 8px;
-        --x-offset-3: 8px;
-        --y-offset-3: -10px;
-
-        img {
-          width: 120px;
-          height: auto;
-          border-radius: 10px;
-        }
+      .laptop-image {
+        border-radius: 20px;
+        max-width: 100%;
+        height: auto;
       }
 
-      &.watch {
-        bottom: -1%;
-        left: 52%;
-        --x-offset-1: -8px;
-        --y-offset-1: -15px;
-        --x-offset-2: 12px;
-        --y-offset-2: -8px;
-        --x-offset-3: -10px;
-        --y-offset-3: 10px;
-
-        img {
-          width: 220px;
-          height: auto;
-          border-radius: 15px;
-        }
-      }
-
-      &.keyboard {
-        bottom: -20%;
-        right: 1%;
-        --x-offset-1: 10px;
-        --y-offset-1: 10px;
-        --x-offset-2: -8px;
-        --y-offset-2: 12px;
-        --x-offset-3: 6px;
-        --y-offset-3: -8px;
-
-        img {
-          width: 380px;
-          height: auto;
-          border-radius: 15px;
-        }
-      }
-
-      // New Images Positioning - Desktop
-      &.devops {
-        right: 30%;
-        --x-offset-1: -6px;
-        --y-offset-1: 10px;
-        --x-offset-2: 8px;
-        --y-offset-2: -5px;
-        --x-offset-3: -4px;
-        --y-offset-3: 12px;
-
-        .tech-image {
-          width: 190px;
-
-          border-radius: 20px;
-        }
-      }
-
-      &.azure {
-        bottom: 0%;
-        left: 18%;
-        --x-offset-1: 12px;
-        --y-offset-1: -8px;
-        --x-offset-2: -6px;
-        --y-offset-2: 10px;
-        --x-offset-3: 9px;
-        --y-offset-3: -6px;
-
-        .tech-image {
-          width: 180px;
-
-          border-radius: 18px;
-        }
-      }
-
-      &.aws {
-        top: 35%;
-        right: 5%;
-        --x-offset-1: -9px;
-        --y-offset-1: 6px;
-        --x-offset-2: 11px;
-        --y-offset-2: -9px;
-        --x-offset-3: -7px;
-        --y-offset-3: 8px;
-
-        .tech-image {
-          width: 150px;
-          border-radius: 16px;
-        }
+      .accessory-image {
+        border-radius: 10px;
+        max-width: 100%;
+        height: auto;
       }
     }
   }
@@ -311,72 +199,183 @@
       transform: scale(1) translate(0, 0) rotate(0deg);
     }
     25% {
-      transform: scale(1.02) translate(var(--x-offset-1), var(--y-offset-1)) rotate(1deg);
+      transform: scale(1.02) translate(var(--x-offset-1, 8px), var(--y-offset-1, -12px)) rotate(1deg);
     }
     50% {
-      transform: scale(1) translate(var(--x-offset-2), var(--y-offset-2)) rotate(-0.5deg);
+      transform: scale(1) translate(var(--x-offset-2, -5px), var(--y-offset-2, 8px)) rotate(-0.5deg);
     }
     75% {
-      transform: scale(0.98) translate(var(--x-offset-3), var(--y-offset-3)) rotate(0.5deg);
+      transform: scale(0.98) translate(var(--x-offset-3, 10px), var(--y-offset-3, -5px)) rotate(0.5deg);
     }
     100% {
       transform: scale(1) translate(0, 0) rotate(0deg);
     }
   }
 
-  // Responsive Design - Large Desktop (1400px+)
-  // @media (min-width: 1400px) {
-  //   .images-container {
-  //     .image-wrapper {
-  //       &.devops {
-  //         top: 8%;
-  //         left: 18%;
-          
-  //         .tech-image {
-  //           width: 200px;
-  //           height: 200px;
-  //         }
-  //       }
+  // Desktop View (1025px and above) - Original positioning
+  @media (min-width: 1025px) {
+    main {
+      flex-direction: row;
+      text-align: left;
+    }
 
-  //       &.azure {
-  //         top: 65%;
-  //         left: 12%;
+    .content {
+      max-width: 660px;
+      margin-bottom: 0;
+    }
 
-  //         .tech-image {
-  //           width: 180px;
-  //           height: 180px;
-  //         }
-  //       }
+    .images-container {
+      .image-wrapper {
+        // Original Desktop Positioning
+        &.headphones {
+          top: -15%;
+          left: 26%;
+          --x-offset-1: 8px;
+          --y-offset-1: -12px;
+          --x-offset-2: -5px;
+          --y-offset-2: 8px;
+          --x-offset-3: 10px;
+          --y-offset-3: -5px;
 
-  //       &.aws {
-  //         top: 38%;
-  //         left: 8%;
+          img {
+            width: 280px;
+          }
+        }
 
-  //         .tech-image {
-  //           width: 160px;
-  //           height: 160px;
-  //         }
-  //       }
-  //     }
-  //   }
-  // }
+        &.laptop {
+          top: 20%;
+          right: 18%;
+          --x-offset-1: -10px;
+          --y-offset-1: 8px;
+          --x-offset-2: 7px;
+          --y-offset-2: -6px;
+          --x-offset-3: -5px;
+          --y-offset-3: 12px;
 
-  // Responsive Design - Tablet adjustments
-  @media (max-width: 1200px) and (min-width: 769px) {
+          .laptop-image {
+            width: 700px;
+          }
+        }
+
+        &.mouse {
+          top: 0%;
+          right: 1%;
+          --x-offset-1: 12px;
+          --y-offset-1: 15px;
+          --x-offset-2: -10px;
+          --y-offset-2: 8px;
+          --x-offset-3: 8px;
+          --y-offset-3: -10px;
+
+          img {
+            width: 120px;
+          }
+        }
+
+        &.watch {
+          bottom: -1%;
+          left: 52%;
+          --x-offset-1: -8px;
+          --y-offset-1: -15px;
+          --x-offset-2: 12px;
+          --y-offset-2: -8px;
+          --x-offset-3: -10px;
+          --y-offset-3: 10px;
+
+          img {
+            width: 220px;
+          }
+        }
+
+        &.keyboard {
+          bottom: -20%;
+          right: 1%;
+          --x-offset-1: 10px;
+          --y-offset-1: 10px;
+          --x-offset-2: -8px;
+          --y-offset-2: 12px;
+          --x-offset-3: 6px;
+          --y-offset-3: -8px;
+
+          img {
+            width: 380px;
+          }
+        }
+
+        &.devops {
+          top: 8%;
+          right: 30%;
+          --x-offset-1: -6px;
+          --y-offset-1: 10px;
+          --x-offset-2: 8px;
+          --y-offset-2: -5px;
+          --x-offset-3: -4px;
+          --y-offset-3: 12px;
+
+          .tech-image {
+            width: 190px;
+          }
+        }
+
+        &.azure {
+          bottom: 0%;
+          left: 18%;
+          --x-offset-1: 12px;
+          --y-offset-1: -8px;
+          --x-offset-2: -6px;
+          --y-offset-2: 10px;
+          --x-offset-3: 9px;
+          --y-offset-3: -6px;
+
+          .tech-image {
+            width: 180px;
+          }
+        }
+
+        &.aws {
+          top: 35%;
+          right: 5%;
+          --x-offset-1: -9px;
+          --y-offset-1: 6px;
+          --x-offset-2: 11px;
+          --y-offset-2: -9px;
+          --x-offset-3: -7px;
+          --y-offset-3: 8px;
+
+          .tech-image {
+            width: 150px;
+          }
+        }
+      }
+    }
+  }
+
+  // Laptop View (769px - 1024px)
+  @media (min-width: 769px) and (max-width: 1024px) {
+    main {
+      flex-direction: row;
+      text-align: left;
+    }
+
+    .content {
+      max-width: 500px;
+      margin-bottom: 0;
+    }
+
     .images-container {
       .image-wrapper {
         &.headphones {
           top: -10%;
           left: 20%;
-          
+
           img {
             width: clamp(200px, 20vw, 240px);
           }
         }
 
         &.laptop {
-         top: 22%;
-        right: -3%;
+          top: 22%;
+          right: -3%;
 
           .laptop-image {
             width: clamp(500px, 55vw, 600px);
@@ -410,123 +409,38 @@
           }
         }
 
-        // New images responsive adjustments
-        &.devops {
-          right: 30%;
-
-          .tech-image {
-            width: clamp(140px, 15vw, 100px);
-            height: clamp(140px, 15vw, 100px);
-          }
-        }
-
-        &.azure {
-          bottom: 0%;
-
-          .tech-image {
-            width: clamp(120px, 13vw, 140px);
-            height: clamp(120px, 13vw, 140px);
-          }
-        }
-
-        &.aws {
-          top: 66%;
-          bottom: 10%;
-
-          .tech-image {
-            width: clamp(100px, 11vw, 120px);
-            height: clamp(100px, 11vw, 120px);
-          }
-        }
-      }
-    }
-  }
-
-  // Responsive Design - Large tablets
-  @media (max-width: 1024px) and (min-width: 769px) {
-    .images-container {
-      .image-wrapper {
-        &.headphones {
-          top: -8%;
-          left: 15%;
-          
-          img {
-            width: clamp(180px, 18vw, 220px);
-          }
-        }
-
-        &.laptop {
-          top: 12%;
-          right: 8%;
-
-          .laptop-image {
-            width: clamp(450px, 50vw, 550px);
-          }
-        }
-
-        &.mouse {
-          top: 8%;
-          right: 3%;
-
-          img {
-            width: clamp(70px, 8vw, 90px);
-          }
-        }
-
-        &.watch {
-          bottom: 8%;
-          left: 40%;
-
-          img {
-            width: clamp(140px, 16vw, 160px);
-          }
-        }
-
-        &.keyboard {
-          bottom: -12%;
-          right: 3%;
-
-          img {
-            width: clamp(250px, 28vw, 300px);
-          }
-        }
-
-        // New images for large tablets
         &.devops {
           top: 6%;
           left: 10%;
 
           .tech-image {
-            width: clamp(120px, 13vw, 140px);
-            height: clamp(120px, 13vw, 140px);
+            width: clamp(140px, 15vw, 160px);
           }
         }
 
         &.azure {
-          top: 55%;
-          left: 3%;
+          bottom: 0%;
+          left: 8%;
 
           .tech-image {
-            width: clamp(100px, 11vw, 120px);
-            height: clamp(100px, 11vw, 120px);
+            width: clamp(120px, 13vw, 140px);
           }
         }
 
         &.aws {
           top: 30%;
-          left: 1%;
+          right: 2%;
 
           .tech-image {
-            width: clamp(90px, 10vw, 110px);
-            height: clamp(90px, 10vw, 110px);
+            width: clamp(100px, 11vw, 120px);
           }
         }
       }
     }
   }
 
-  // Responsive Design - Tablets
-  @media (max-width: 768px) and (min-width: 481px) {
+  // Tablet View (481px - 768px) - Centered laptop with minimal other logos
+  @media (min-width: 481px) and (max-width: 768px) {
     padding: 100px 3% 50px;
 
     main {
@@ -576,7 +490,7 @@
           }
         }
 
-        // Show only one new tech image on tablet
+        // Show only devops logo as accent
         &.devops {
           position: absolute;
           top: 10%;
@@ -585,11 +499,26 @@
 
           .tech-image {
             width: clamp(80px, 12vw, 100px);
-            height: clamp(80px, 12vw, 100px);
           }
 
           &.loaded {
             animation: floatTablet 7s ease-in-out infinite;
+          }
+        }
+
+        // Show azure logo as accent
+        &.azure {
+          position: absolute;
+          bottom: 15%;
+          right: 10%;
+          z-index: 1;
+
+          .tech-image {
+            width: clamp(70px, 10vw, 90px);
+          }
+
+          &.loaded {
+            animation: floatTablet 8s ease-in-out infinite;
           }
         }
 
@@ -598,7 +527,6 @@
         &.mouse,
         &.watch,
         &.keyboard,
-        &.azure,
         &.aws {
           display: none;
         }
@@ -624,7 +552,7 @@
     }
   }
 
-  // Responsive Design - Mobile
+  // Mobile View (320px - 480px) - Centered laptop only
   @media (max-width: 480px) {
     padding: 80px 4% 40px;
 
@@ -718,7 +646,7 @@
     }
   }
 
-  // Extra small mobile devices
+  // Extra small mobile devices (below 360px)
   @media (max-width: 360px) {
     padding: 70px 3% 30px;
 
@@ -741,16 +669,19 @@
     }
   }
 
-  // Landscape orientation adjustments
+  // Landscape orientation adjustments for mobile/tablet
   @media (max-height: 600px) and (orientation: landscape) {
     padding: 60px 4% 30px;
 
     main {
       min-height: 50vh;
+      flex-direction: row;
+      text-align: left;
     }
 
     .content {
       margin-bottom: 30px;
+      max-width: 50%;
 
       .headingglogo {
         font-size: clamp(1.2rem, 5vw, 2rem);
@@ -763,15 +694,87 @@
 
     .images-container {
       height: 200px;
+      width: 50%;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
 
-      .image-wrapper.laptop .laptop-image {
-        width: clamp(300px, 60vw, 400px);
+      .image-wrapper.laptop {
+        position: relative;
+        top: auto;
+        right: auto;
+        left: 50%;
+        transform: translateX(-50%);
+
+        .laptop-image {
+          width: clamp(300px, 60vw, 400px);
+        }
       }
 
-      .image-wrapper.devops .tech-image {
-        width: clamp(60px, 8vw, 80px);
-        height: clamp(60px, 8vw, 80px);
+      .image-wrapper.devops {
+        position: absolute;
+        top: 10%;
+        left: 10%;
+
+        .tech-image {
+          width: clamp(60px, 8vw, 80px);
+        }
       }
+
+      // Hide other logos in landscape mobile
+      .image-wrapper:not(.laptop):not(.devops) {
+        display: none;
+      }
+    }
+  }
+
+  // High resolution displays
+  @media (min-width: 1400px) {
+    .images-container {
+      .image-wrapper {
+        &.laptop .laptop-image {
+          width: 750px;
+        }
+
+        &.headphones img {
+          width: 300px;
+        }
+
+        &.devops .tech-image {
+          width: 200px;
+        }
+
+        &.azure .tech-image {
+          width: 190px;
+        }
+
+        &.aws .tech-image {
+          width: 160px;
+        }
+      }
+    }
+  }
+
+  // Performance optimizations
+  .images-container .image-wrapper {
+    will-change: transform;
+    transform: translateZ(0);
+    backface-visibility: hidden;
+  }
+
+  // Reduced motion support
+  @media (prefers-reduced-motion: reduce) {
+    .images-container .image-wrapper {
+      animation: none !important;
+    }
+
+    .content {
+      animation: none !important;
+    }
+
+    .subtitle {
+      animation: none !important;
     }
   }
 }
