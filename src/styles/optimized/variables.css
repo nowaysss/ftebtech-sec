@@ -1,0 +1,66 @@
+/* Optimized CSS Variables - Consolidated */
+:root {
+  /* Core Colors */
+  --primary: #0056D2;
+  --secondary: #66A1E7;
+  --accent: #FFA500;
+  --text: #333333;
+  --text-muted: #666666;
+  --bg-light: #F2F6FC;
+  --white: #ffffff;
+  --dark: #111827;
+  
+  /* Typography */
+  --font-primary: 'Poppins', -apple-system, sans-serif;
+  --font-weight-normal: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+  
+  /* Spacing Scale */
+  --space-xs: clamp(0.5rem, 2vw, 1rem);
+  --space-sm: clamp(1rem, 3vw, 1.5rem);
+  --space-md: clamp(1.5rem, 4vw, 2rem);
+  --space-lg: clamp(2rem, 5vw, 3rem);
+  --space-xl: clamp(3rem, 6vw, 4rem);
+  
+  /* Responsive Typography */
+  --text-xs: clamp(0.75rem, 1.5vw, 0.875rem);
+  --text-sm: clamp(0.875rem, 2vw, 1rem);
+  --text-base: clamp(1rem, 2.5vw, 1.125rem);
+  --text-lg: clamp(1.125rem, 3vw, 1.25rem);
+  --text-xl: clamp(1.25rem, 3.5vw, 1.5rem);
+  --text-2xl: clamp(1.5rem, 4vw, 2rem);
+  --text-3xl: clamp(2rem, 5vw, 2.5rem);
+  --text-4xl: clamp(2.5rem, 6vw, 3.5rem);
+  
+  /* Transitions */
+  --transition-fast: 0.15s ease;
+  --transition: 0.3s ease;
+  --transition-slow: 0.5s ease;
+  
+  /* Shadows */
+  --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.1);
+  --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 10px 25px rgba(0, 0, 0, 0.15);
+  
+  /* Border Radius */
+  --radius-sm: 6px;
+  --radius: 8px;
+  --radius-lg: 12px;
+  --radius-xl: 16px;
+  
+  /* Touch Targets */
+  --touch-min: 44px;
+  --touch-comfortable: 48px;
+}
+
+/* Dark mode support */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --text: #e5e7eb;
+    --text-muted: #9ca3af;
+    --bg-light: #1f2937;
+    --white: #111827;
+  }
+}
