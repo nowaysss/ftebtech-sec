@@ -25,7 +25,12 @@ import {
   faExclamationTriangle,
   faInfoCircle,
 } from '@fortawesome/free-solid-svg-icons';
-import { faLinkedinIn } from '@fortawesome/free-brands-svg-icons';
+import { 
+  faLinkedinIn,
+  faTwitter,
+  faFacebookF,
+  faInstagram
+} from '@fortawesome/free-brands-svg-icons';
 
 // Icon mapping object
 const iconMap = {
@@ -65,12 +70,14 @@ const iconMap = {
 
   // Social Icons
   LinkedIn: faLinkedinIn,
+  Twitter: faTwitter,
+  Facebook: faFacebookF,
+  Instagram: faInstagram,
 
   // Technology Icons
   Azure: faCloud,
   AWS: faCloud,
   GCP: faCloud,
-
 };
 
 // Icon wrapper component for consistent styling

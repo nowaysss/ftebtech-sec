@@ -1,0 +1,310 @@
+.dino-game {
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+  background: #f7f7f7;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  position: relative;
+
+  .game-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+    background: #ffffff;
+    border-bottom: 2px solid #e5e7eb;
+    font-family: 'Courier New', monospace;
+
+    .score-display {
+      display: flex;
+      gap: 20px;
+      font-weight: bold;
+      color: #535353;
+
+      span {
+        font-size: 14px;
+      }
+    }
+
+    .game-controls {
+      font-size: 12px;
+      color: #666;
+    }
+  }
+
+  .game-canvas {
+    display: block;
+    width: 100%;
+    height: 200px;
+    background: #f7f7f7;
+    cursor: pointer;
+    outline: none;
+
+    &:focus {
+      outline: 2px solid var(--color-primary);
+      outline-offset: -2px;
+    }
+  }
+
+  .game-overlay {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    background: rgba(255, 255, 255, 0.95);
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+    backdrop-filter: blur(10px);
+    border: 2px solid #e5e7eb;
+
+    h3 {
+      font-family: var(--font-heading);
+      color: var(--color-primary);
+      margin-bottom: 15px;
+      font-size: 1.5rem;
+    }
+
+    p {
+      font-family: var(--font-body);
+      color: var(--color-text);
+      margin-bottom: 15px;
+      font-size: 1rem;
+    }
+
+    .controls-hint {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      margin-top: 15px;
+
+      span {
+        font-family: 'Courier New', monospace;
+        font-size: 0.9rem;
+        color: var(--color-muted);
+        background: #f8f9fa;
+        padding: 5px 10px;
+        border-radius: 6px;
+      }
+    }
+
+    .new-record {
+      color: #28a745;
+      font-weight: bold;
+      animation: pulse 1s infinite;
+    }
+
+    .restart-btn {
+      background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
+      color: white;
+      border: none;
+      padding: 12px 24px;
+      border-radius: 8px;
+      font-family: var(--font-body);
+      font-weight: var(--font-weight-semibold);
+      cursor: pointer;
+      transition: all 0.3s ease;
+      margin-top: 15px;
+
+      &:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 6px 20px rgba(0, 86, 210, 0.3);
+      }
+
+      &:active {
+        transform: translateY(0);
+      }
+    }
+
+    &.game-over {
+      border-color: #dc3545;
+      
+      h3 {
+        color: #dc3545;
+      }
+    }
+  }
+}
+
+// Dino Game Overlay (Modal)
+.dino-game-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.8);
+  backdrop-filter: blur(8px);
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  animation: fadeIn 0.3s ease;
+
+  .dino-game-container {
+    background: white;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    max-width: 90vw;
+    max-height: 90vh;
+    width: 100%;
+    max-width: 850px;
+
+    .dino-game-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 25px;
+      background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
+      color: white;
+
+      h3 {
+        font-family: var(--font-heading);
+        margin: 0;
+        font-size: 1.3rem;
+        font-weight: var(--font-weight-semibold);
+      }
+
+      .close-game-btn {
+        background: rgba(255, 255, 255, 0.2);
+        border: none;
+        color: white;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        transition: all 0.3s ease;
+
+        &:hover {
+          background: rgba(255, 255, 255, 0.3);
+          transform: scale(1.1);
+        }
+      }
+    }
+  }
+}
+
+// Responsive Design
+@media (max-width: 768px) {
+  .dino-game-overlay {
+    padding: 10px;
+
+    .dino-game-container {
+      max-width: 95vw;
+
+      .dino-game-header {
+        padding: 15px 20px;
+
+        h3 {
+          font-size: 1.1rem;
+        }
+
+        .close-game-btn {
+          width: 35px;
+          height: 35px;
+        }
+      }
+    }
+  }
+
+  .dino-game {
+    .game-info {
+      padding: 10px 15px;
+      flex-direction: column;
+      gap: 10px;
+      text-align: center;
+
+      .score-display {
+        gap: 15px;
+      }
+
+      .game-controls {
+        font-size: 11px;
+      }
+    }
+
+    .game-canvas {
+      height: 180px;
+    }
+
+    .game-overlay {
+      padding: 20px;
+
+      h3 {
+        font-size: 1.3rem;
+      }
+
+      p {
+        font-size: 0.9rem;
+      }
+
+      .controls-hint span {
+        font-size: 0.8rem;
+      }
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .dino-game {
+    .game-canvas {
+      height: 160px;
+    }
+
+    .game-overlay {
+      padding: 15px;
+
+      .controls-hint {
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 5px;
+
+        span {
+          font-size: 0.75rem;
+          padding: 3px 6px;
+        }
+      }
+    }
+  }
+}
+
+// Animations
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+}
+
+// Reduced Motion
+@media (prefers-reduced-motion: reduce) {
+  .dino-game-overlay,
+  .game-overlay .new-record {
+    animation: none;
+  }
+
+  .restart-btn:hover,
+  .close-game-btn:hover {
+    transform: none;
+  }
+}
