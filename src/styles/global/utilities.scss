@@ -1,0 +1,58 @@
+/* Utility Classes */
+.text-center {
+  text-align: center;
+}
+
+.bg-light {
+  background-color: var(--color-bg-light);
+}
+
+/* Typography Utilities */
+.heading-primary {
+  font-family: var(--font-heading) !important;
+  font-size: clamp(2.5rem, 6vw, 3rem);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-primary);
+  line-height: var(--line-height-tight);
+  letter-spacing: var(--letter-spacing-tight);
+}
+
+.heading-secondary {
+  font-family: var(--font-heading) !important;
+  font-size: clamp(2rem, 5vw, 2.25rem);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-primary);
+  line-height: var(--line-height-tight);
+}
+
+.heading-tertiary {
+  font-family: var(--font-heading) !important;
+  font-size: clamp(1.5rem, 4vw, 1.875rem);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-primary);
+  line-height: var(--line-height-snug);
+}
+
+.text-lead {
+  font-family: var(--font-body) !important;
+  font-size: clamp(1rem, 2.5vw, 1.125rem);
+  font-weight: var(--font-weight-normal);
+  color: var(--color-text);
+  line-height: var(--line-height-relaxed);
+}
+
+.text-body {
+  font-family: var(--font-body) !important;
+  font-size: clamp(0.875rem, 2vw, 1rem);
+  font-weight: var(--font-weight-normal);
+  color: var(--color-text);
+  line-height: var(--line-height-relaxed);
+}
+
+.text-caption {
+  font-family: var(--font-body) !important;
+  font-size: clamp(0.75rem, 1.5vw, 0.875rem);
+  font-weight: var(--font-weight-normal);
+  color: var(--color-muted);
+  line-height: var(--line-height-normal);
+}

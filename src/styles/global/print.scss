@@ -1,0 +1,17 @@
+/* Print Styles */
+@media print {
+  .section {
+    padding: 20px 0;
+  }
+
+  .btn,
+  .service-btn {
+    display: none;
+  }
+
+  * {
+    background: transparent !important;
+    color: black !important;
+    box-shadow: none !important;
+  }
+}
