@@ -24,6 +24,8 @@ import {
   faCheckCircle,
   faExclamationTriangle,
   faInfoCircle,
+  faUsers,
+  faAward,
 } from '@fortawesome/free-solid-svg-icons';
 import { 
   faLinkedinIn,
@@ -67,6 +69,10 @@ const iconMap = {
   Success: faCheckCircle,
   Warning: faExclamationTriangle,
   Info: faInfoCircle,
+
+  // Counter Icons
+  Users: faUsers,
+  Award: faAward,
 
   // Social Icons
   LinkedIn: faLinkedinIn,
