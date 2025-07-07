@@ -482,7 +482,7 @@
   }
 }
 
-// Fallback for browsers that don't support backdrop-filter
+// Fallback for browsers that dont support backdrop-filter
 @supports not (backdrop-filter: blur(4px)) {
   .cookie-backdrop {
     background: rgba(0, 0, 0, 0.5);
