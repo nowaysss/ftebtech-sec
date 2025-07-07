@@ -5,6 +5,7 @@ import { useState, useEffect } from "react"
 import "./App.css"
 import Header from "./components/Header/Header"
 import Footer from "./components/Footer/Footer"
+import CookieConsent from "./components/CookieConsent/CookieConsent"
 import Resolution from "./pages/Resolution/Resolution"
 import Servicess from "./pages/Servicess/Servicess"
 import Contact from "./pages/Contact/Contact"
@@ -62,6 +63,7 @@ function App() {
           <Route path={routes.erosource.path} element={<ErosourceServices />} />
         </Routes>
         <Footer />
+        <CookieConsent />
       </div>
     </Router>
   )
