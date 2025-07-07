@@ -20,6 +20,9 @@ import InfrastructureServices from "./pages/Services/InfrastructureServices"
 import SecurityServices from "./pages/Services/SecurityServices.jsx"
 import Turbo360Services from "./pages/Services/Turbo360Services"
 import ErosourceServices from "./pages/Services/ErosourceServices"
+import PrivacyPolicy from "./pages/Legal/PrivacyPolicy"
+import TermsOfService from "./pages/Legal/TermsOfService"
+import CookiesPolicy from "./pages/Legal/CookiesPolicy"
 import { routes } from './routes.js'
 
 function ScrollToTop() {
@@ -61,6 +64,11 @@ function App() {
           <Route path={routes.security.path} element={<SecurityServices />} />
           <Route path={routes.turbo360.path} element={<Turbo360Services />} />
           <Route path={routes.erosource.path} element={<ErosourceServices />} />
+          
+          {/* Legal Pages */}
+          <Route path={routes.privacyPolicy.path} element={<PrivacyPolicy />} />
+          <Route path={routes.termsOfService.path} element={<TermsOfService />} />
+          <Route path={routes.cookiesPolicy.path} element={<CookiesPolicy />} />
         </Routes>
         <Footer />
         <CookieConsent />

@@ -91,6 +91,22 @@ export const routes = {
     path: '/services/erosource',
     name: 'Erosource',
     title: 'Erosource Enterprise Solutions'
+  },
+  // Legal Pages
+  privacyPolicy: {
+    path: '/privacy-policy',
+    name: 'Privacy Policy',
+    title: 'Privacy Policy'
+  },
+  termsOfService: {
+    path: '/terms-of-service',
+    name: 'Terms of Service',
+    title: 'Terms of Service'
+  },
+  cookiesPolicy: {
+    path: '/cookies-policy',
+    name: 'Cookies Policy',
+    title: 'Cookies Policy'
   }
 };
 
