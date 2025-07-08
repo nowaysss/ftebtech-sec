@@ -3,7 +3,6 @@ import "../../styles/components/Footer/Footer.scss"
 import footerLogo from '../../assets/images/FTebtech-logo/FTEB-logo-white.png';
 import { Icon } from '../Icons/IconSystem'
 import DinoGame from '../DinoGame/DinoGame';
-import SuperMarioGame from '../SuperMarioGame/SuperMarioGame';
 
 const Footer = () => {
   const [showDinoGame, setShowDinoGame] = useState(false);
