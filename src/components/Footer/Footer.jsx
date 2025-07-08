@@ -240,14 +240,7 @@ const Footer = () => {
                 >
                   🦕 Play Game
                 </button>
-                <button 
-                  className="mario-game-trigger"
-                  onClick={toggleMarioGame}
-                  title="Play Super Mario Bros"
-                  aria-label="Play Super Mario Bros"
-                >
-                  🍄 Mario Game
-                </button>
+               
               </div>
             </div>
           </div>
