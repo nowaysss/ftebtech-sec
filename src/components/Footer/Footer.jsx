@@ -90,25 +90,7 @@ const Footer = () => {
         </div>
       )}
 
-      {/* Mario Game Modal */}
-      {showMarioGame && (
-        <div className="mario-game-overlay">
-          <div className="mario-game-container">
-            <div className="mario-game-header">
-              <h3>Super Mario Bros</h3>
-              <button 
-                className="close-game-btn"
-                onClick={toggleMarioGame}
-                aria-label="Close game"
-              >
-                <Icon name="Close" size={24} />
-              </button>
-            </div>
-            <SuperMarioGame />
-          </div>
-        </div>
-      )}
-
+ 
       <footer className="modern-footer">
         {/* Main Footer Content */}
         <div className="footer-main">
