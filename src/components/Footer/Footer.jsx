@@ -106,21 +106,7 @@ const Footer = () => {
                 </div>
               </div>
 
-              {/* Quick Links */}
-              <div className="footer-section">
-                <h4>Quick Links</h4>
-                <ul className="footer-links">
-                  {quickLinks.map((link, index) => (
-                    <li key={index}>
-                      <a href={link.path}>
-                        <Icon name="ArrowRight" size={12} />
-                        {link.name}
-                      </a>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-
+             
               {/* Services */}
               <div className="footer-section">
                 <h4>Our Services</h4>
