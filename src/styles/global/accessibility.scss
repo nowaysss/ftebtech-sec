@@ -1,0 +1,39 @@
+/* Touch Device Optimizations */
+@media (hover: none) and (pointer: coarse) {
+  .btn:hover,
+  .service-btn:hover {
+    transform: none;
+    box-shadow: none;
+  }
+
+  .btn:active,
+  .service-btn:active {
+    transform: scale(0.98);
+  }
+}
+
+/* Accessibility */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+@media (prefers-contrast: high) {
+  .btn,
+  .service-btn {
+    border: 2px solid currentColor;
+  }
+}
+
+/* Focus Styles */
+.btn:focus,
+.service-btn:focus,
+a:focus,
+button:focus {
+  outline: 2px solid var(--color-secondary);
+  outline-offset: 2px;
+}
