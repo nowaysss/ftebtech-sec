@@ -107,20 +107,7 @@ const Footer = () => {
               </div>
 
              
-              {/* Services */}
-              <div className="footer-section">
-                <h4>Our Services</h4>
-                <ul className="footer-links">
-                  {services.map((service, index) => (
-                    <li key={index}>
-                      <a href={service.path}>
-                        <Icon name="ArrowRight" size={12} />
-                        {service.name}
-                      </a>
-                    </li>
-                  ))}
-                </ul>
-              </div>
+            
 
               {/* Newsletter & Social */}
               <div className="footer-section newsletter-section">
