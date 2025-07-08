@@ -3,9 +3,11 @@ import "../../styles/components/Footer/Footer.scss"
 import footerLogo from '../../assets/images/FTebtech-logo/FTEB-logo-white.png';
 import { Icon } from '../Icons/IconSystem'
 import DinoGame from '../DinoGame/DinoGame';
+import SuperMarioGame from '../SuperMarioGame/SuperMarioGame';
 
 const Footer = () => {
   const [showDinoGame, setShowDinoGame] = useState(false);
+  const [showMarioGame, setShowMarioGame] = useState(false);
   const [currentYear] = useState(new Date().getFullYear());
 
   const quickLinks = [
@@ -65,6 +67,9 @@ const Footer = () => {
     setShowDinoGame(!showDinoGame);
   };
 
+  const toggleMarioGame = () => {
+    setShowMarioGame(!showMarioGame);
+  };
   return (
     <>
       {/* Dino Game Modal */}
@@ -82,6 +87,25 @@ const Footer = () => {
               </button>
             </div>
             <DinoGame />
+          </div>
+        </div>
+      )}
+
+      {/* Mario Game Modal */}
+      {showMarioGame && (
+        <div className="mario-game-overlay">
+          <div className="mario-game-container">
+            <div className="mario-game-header">
+              <h3>Super Mario Bros</h3>
+              <button 
+                className="close-game-btn"
+                onClick={toggleMarioGame}
+                aria-label="Close game"
+              >
+                <Icon name="Close" size={24} />
+              </button>
+            </div>
+            <SuperMarioGame />
           </div>
         </div>
       )}
@@ -216,6 +240,14 @@ const Footer = () => {
                   aria-label="Play Chrome Dino Game"
                 >
                   🦕 Play Game
+                </button>
+                <button 
+                  className="mario-game-trigger"
+                  onClick={toggleMarioGame}
+                  title="Play Super Mario Bros"
+                  aria-label="Play Super Mario Bros"
+                >
+                  🍄 Mario Game
                 </button>
               </div>
             </div>
