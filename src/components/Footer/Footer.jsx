@@ -147,6 +147,20 @@ const Footer = () => {
                     ))}
                   </div>
                 </div>
+
+                   <div className="easter-egg">
+                <button 
+                  className="dino-game-trigger"
+                  onClick={toggleDinoGame}
+                  title="Play Chrome Dino Game"
+                  aria-label="Play Chrome Dino Game"
+                >
+                  🦕 Play Game
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
               </div>
             </div>
           </div>
@@ -167,19 +181,7 @@ const Footer = () => {
               </div>
 
               {/* Fun Easter Egg - Dino Game Button */}
-              <div className="easter-egg">
-                <button 
-                  className="dino-game-trigger"
-                  onClick={toggleDinoGame}
-                  title="Play Chrome Dino Game"
-                  aria-label="Play Chrome Dino Game"
-                >
-                  🦕 Play Game
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
+           
 
         {/* Decorative Elements */}
         <div className="footer-decoration">
