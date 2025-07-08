@@ -148,7 +148,9 @@ const Footer = () => {
                   </div>
                 </div>
 
-                   <div className="easter-egg">
+                
+              </div>
+                 <div className="easter-egg">
                 <button 
                   className="dino-game-trigger"
                   onClick={toggleDinoGame}
@@ -160,8 +162,6 @@ const Footer = () => {
               </div>
             </div>
           </div>
-        </div>
-              </div>
             </div>
           </div>
         </div>
