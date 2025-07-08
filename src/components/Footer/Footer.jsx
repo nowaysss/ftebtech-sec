@@ -8,21 +8,7 @@ const Footer = () => {
   const [showDinoGame, setShowDinoGame] = useState(false);
   const [currentYear] = useState(new Date().getFullYear());
 
-  const quickLinks = [
-    { name: 'About Us', path: '/about' },
-    { name: 'Services', path: '/servicess' },
-    { name: 'Case Studies', path: '/case-studies' },
-    { name: 'Contact', path: '/contact' },
-    { name: 'Blog', path: '/blog' }
-  ];
-
-  const services = [
-    { name: 'Cloud Solutions', path: '/services/cloud-services' },
-    { name: 'Microsoft 365', path: '/services/microsoft365' },
-    { name: 'Custom Development', path: '/services/development' },
-    { name: 'IT Infrastructure', path: '/services/infrastructure' },
-    { name: 'Cybersecurity', path: '/services/security' }
-  ];
+ 
 
   const socialLinks = [
     { 
