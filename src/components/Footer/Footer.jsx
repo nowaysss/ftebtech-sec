@@ -66,9 +66,7 @@ const Footer = () => {
     setShowDinoGame(!showDinoGame);
   };
 
-  const toggleMarioGame = () => {
-    setShowMarioGame(!showMarioGame);
-  };
+  
   return (
     <>
       {/* Dino Game Modal */}
