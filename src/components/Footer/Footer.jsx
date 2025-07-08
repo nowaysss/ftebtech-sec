@@ -8,7 +8,21 @@ const Footer = () => {
   const [showDinoGame, setShowDinoGame] = useState(false);
   const [currentYear] = useState(new Date().getFullYear());
 
- 
+  const quickLinks = [
+    { name: 'About Us', path: '/about' },
+    { name: 'Services', path: '/servicess' },
+    { name: 'Case Studies', path: '/case-studies' },
+    { name: 'Contact', path: '/contact' },
+    { name: 'Blog', path: '/blog' }
+  ];
+
+  const services = [
+    { name: 'Cloud Solutions', path: '/services/cloud-services' },
+    { name: 'Microsoft 365', path: '/services/microsoft365' },
+    { name: 'Custom Development', path: '/services/development' },
+    { name: 'IT Infrastructure', path: '/services/infrastructure' },
+    { name: 'Cybersecurity', path: '/services/security' }
+  ];
 
   const socialLinks = [
     { 
@@ -106,8 +120,35 @@ const Footer = () => {
                 </div>
               </div>
 
-             
-            
+              {/* Quick Links */}
+              <div className="footer-section">
+                <h4>Quick Links</h4>
+                <ul className="footer-links">
+                  {quickLinks.map((link, index) => (
+                    <li key={index}>
+                      <a href={link.path}>
+                        <Icon name="ArrowRight" size={12} />
+                        {link.name}
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
+              {/* Services */}
+              <div className="footer-section">
+                <h4>Our Services</h4>
+                <ul className="footer-links">
+                  {services.map((service, index) => (
+                    <li key={index}>
+                      <a href={service.path}>
+                        <Icon name="ArrowRight" size={12} />
+                        {service.name}
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              </div>
 
               {/* Newsletter & Social */}
               <div className="footer-section newsletter-section">
@@ -147,21 +188,7 @@ const Footer = () => {
                     ))}
                   </div>
                 </div>
-
-                
               </div>
-                 <div className="easter-egg">
-                <button 
-                  className="dino-game-trigger"
-                  onClick={toggleDinoGame}
-                  title="Play Chrome Dino Game"
-                  aria-label="Play Chrome Dino Game"
-                >
-                  🦕 Play Game
-                </button>
-              </div>
-            </div>
-          </div>
             </div>
           </div>
         </div>
@@ -181,7 +208,19 @@ const Footer = () => {
               </div>
 
               {/* Fun Easter Egg - Dino Game Button */}
-           
+              <div className="easter-egg">
+                <button 
+                  className="dino-game-trigger"
+                  onClick={toggleDinoGame}
+                  title="Play Chrome Dino Game"
+                  aria-label="Play Chrome Dino Game"
+                >
+                  🦕 Play Game
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
 
         {/* Decorative Elements */}
         <div className="footer-decoration">
