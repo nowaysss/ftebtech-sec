@@ -1,0 +1,79 @@
+@import './styles/global/index.scss';
+  .form-group {
+          margin-bottom: clamp(20px, 3vw, 25px);
+
+          .form-label {
+            font-family: var(--font-body);
+            font-weight: var(--font-weight-semibold);
+            color: var(--color-text);
+            margin-bottom: clamp(8px, 1.5vw, 12px);
+            font-size: clamp(0.9rem, 2vw, 1rem);
+          }
+
+          .form-control,
+          .form-select {
+            font-family: var(--font-body);
+            border: 2px solid #e5e7eb;
+            border-radius: 12px;
+            padding: clamp(12px, 2.5vw, 16px) clamp(16px, 3vw, 20px);
+            font-size: clamp(0.9rem, 2vw, 1rem);
+            transition: all 0.3s ease;
+            min-height: var(--touch-target-comfortable);
+
+            &:focus {
+              border-color: var(--color-secondary);
+              box-shadow: 0 0 0 3px rgba(102, 161, 231, 0.1);
+              outline: none;
+            }
+
+            &.is-invalid {
+              border-color: #dc3545;
+              box-shadow: 0 0 0 3px rgba(220, 53, 69, 0.1);
+            }
+
+            &::placeholder {
+              color: var(--color-muted);
+              opacity: 0.7;
+            }
+          }
+
+          textarea.form-control {
+            resize: vertical;
+            min-height: 120px;
+          }
+
+          .form-check {
+            padding-left: 0;
+
+            .form-check-input {
+              width: 20px;
+              height: 20px;
+              margin-right: 12px;
+              border: 2px solid #e5e7eb;
+              border-radius: 4px;
+
+              &:checked {
+                background-color: var(--color-primary);
+                border-color: var(--color-primary);
+              }
+
+              &:focus {
+                box-shadow: 0 0 0 3px rgba(102, 161, 231, 0.1);
+              }
+            }
+
+            .form-check-label {
+              font-family: var(--font-body);
+              color: var(--color-text);
+              font-size: clamp(0.85rem, 1.8vw, 0.95rem);
+              line-height: 1.5;
+            }
+          }
+
+          .invalid-feedback {
+            font-family: var(--font-body);
+            font-size: clamp(0.8rem, 1.6vw, 0.875rem);
+            color: #dc3545;
+            margin-top: 6px;
+          }
+        }

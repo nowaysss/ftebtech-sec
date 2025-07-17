@@ -1,0 +1,319 @@
+.flappy-bird-game {
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+  background: #87CEEB;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  position: relative;
+
+  .game-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+    background: linear-gradient(135deg, #4CAF50, #45a049);
+    color: white;
+    font-family: 'Arial', sans-serif;
+    font-weight: bold;
+
+    .score-display {
+      display: flex;
+      gap: 20px;
+      font-size: 14px;
+
+      span {
+        background: rgba(255, 255, 255, 0.2);
+        padding: 5px 10px;
+        border-radius: 15px;
+        backdrop-filter: blur(5px);
+      }
+    }
+
+    .game-controls {
+      font-size: 12px;
+      opacity: 0.9;
+    }
+  }
+
+  .game-container {
+    position: relative;
+    width: 100%;
+    height: 400px;
+    background: linear-gradient(to bottom, #87CEEB 0%, #98FB98 100%);
+
+    @media (min-width: 768px) {
+      height: 500px;
+    }
+
+    @media (min-width: 1024px) {
+      height: 600px;
+    }
+  }
+
+  .game-canvas {
+    display: block;
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+    outline: none;
+    background: linear-gradient(to bottom, #87CEEB 0%, #98FB98 100%);
+
+    &:focus {
+      outline: 2px solid var(--color-primary);
+      outline-offset: -2px;
+    }
+  }
+
+  .game-overlay {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    background: rgba(0, 0, 0, 0.9);
+    color: white;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(10px);
+    border: 2px solid rgba(255, 255, 255, 0.1);
+    max-width: 90%;
+    z-index: 10;
+
+    h3 {
+      font-family: var(--font-heading);
+      color: #FFD700;
+      margin-bottom: 15px;
+      font-size: clamp(1.2rem, 4vw, 1.8rem);
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    }
+
+    p {
+      font-family: var(--font-body);
+      color: white;
+      margin-bottom: 15px;
+      font-size: clamp(0.9rem, 2.5vw, 1.1rem);
+      line-height: 1.4;
+    }
+
+    .controls-hint {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      margin-top: 15px;
+
+      span {
+        font-family: 'Courier New', monospace;
+        font-size: clamp(0.8rem, 2vw, 0.9rem);
+        color: #87CEEB;
+        background: rgba(135, 206, 235, 0.1);
+        padding: 5px 10px;
+        border-radius: 6px;
+        border: 1px solid rgba(135, 206, 235, 0.3);
+      }
+
+      @media (min-width: 768px) {
+        flex-direction: row;
+        justify-content: center;
+        gap: 15px;
+      }
+    }
+
+    .new-record {
+      color: #FFD700;
+      font-weight: bold;
+      animation: pulse 1s infinite;
+      text-shadow: 0 0 10px #FFD700;
+    }
+
+    .restart-btn {
+      background: linear-gradient(135deg, #4CAF50, #45a049);
+      color: white;
+      border: none;
+      padding: 12px 24px;
+      border-radius: 25px;
+      font-family: var(--font-body);
+      font-weight: var(--font-weight-semibold);
+      cursor: pointer;
+      transition: all 0.3s ease;
+      margin-top: 15px;
+      font-size: clamp(0.9rem, 2.5vw, 1rem);
+      box-shadow: 0 4px 15px rgba(76, 175, 80, 0.3);
+
+      &:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 6px 20px rgba(76, 175, 80, 0.4);
+        background: linear-gradient(135deg, #45a049, #4CAF50);
+      }
+
+      &:active {
+        transform: translateY(0);
+      }
+    }
+
+    &.game-over {
+      border-color: #ff4444;
+      
+      h3 {
+        color: #ff6b6b;
+      }
+    }
+  }
+}
+
+// Responsive Design
+@media (max-width: 768px) {
+  .flappy-bird-game {
+    .game-info {
+      padding: 10px 15px;
+      flex-direction: column;
+      gap: 10px;
+      text-align: center;
+
+      .score-display {
+        gap: 15px;
+        justify-content: center;
+      }
+
+      .game-controls {
+        font-size: 11px;
+      }
+    }
+
+    .game-container {
+      height: 350px;
+    }
+
+    .game-overlay {
+      padding: 20px;
+
+      h3 {
+        font-size: 1.4rem;
+      }
+
+      p {
+        font-size: 0.9rem;
+      }
+
+      .controls-hint span {
+        font-size: 0.75rem;
+        padding: 3px 6px;
+      }
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .flappy-bird-game {
+    .game-container {
+      height: 300px;
+    }
+
+    .game-overlay {
+      padding: 15px;
+      max-width: 95%;
+
+      .controls-hint {
+        flex-direction: column;
+        gap: 5px;
+
+        span {
+          font-size: 0.7rem;
+          padding: 2px 5px;
+        }
+      }
+    }
+  }
+}
+
+// Landscape Mobile Optimization
+@media (max-height: 500px) and (orientation: landscape) {
+  .flappy-bird-game {
+    .game-container {
+      height: 250px;
+    }
+
+    .game-overlay {
+      padding: 15px;
+      
+      h3 {
+        font-size: 1.2rem;
+        margin-bottom: 10px;
+      }
+
+      p {
+        font-size: 0.8rem;
+        margin-bottom: 10px;
+      }
+
+      .controls-hint {
+        margin-top: 10px;
+        
+        span {
+          font-size: 0.7rem;
+          padding: 2px 5px;
+        }
+      }
+
+      .restart-btn {
+        padding: 8px 16px;
+        font-size: 0.8rem;
+        margin-top: 10px;
+      }
+    }
+  }
+}
+
+// Animations
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+}
+
+// Reduced Motion
+@media (prefers-reduced-motion: reduce) {
+  .flappy-bird-game {
+    .game-overlay .new-record {
+      animation: none;
+    }
+
+    .restart-btn:hover {
+      transform: none;
+    }
+  }
+}
+
+// High Contrast Mode
+@media (prefers-contrast: high) {
+  .flappy-bird-game {
+    border: 3px solid currentColor;
+
+    .game-overlay {
+      border: 3px solid white;
+      background: black;
+    }
+
+    .restart-btn {
+      border: 2px solid white;
+    }
+  }
+}
+
+// Touch Device Optimizations
+@media (hover: none) and (pointer: coarse) {
+  .flappy-bird-game {
+    .restart-btn:hover {
+      transform: none;
+    }
+
+    .restart-btn:active {
+      transform: scale(0.95);
+    }
+  }
+}

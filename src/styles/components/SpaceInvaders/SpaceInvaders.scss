@@ -1,0 +1,373 @@
+.space-invaders-game {
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+  background: #000011;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  position: relative;
+  border: 2px solid #00ffff;
+
+  .game-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+    background: linear-gradient(135deg, #1a1a2e, #16213e);
+    color: #00ffff;
+    font-family: 'Courier New', monospace;
+    font-weight: bold;
+    border-bottom: 2px solid #00ffff;
+
+    .score-display {
+      display: flex;
+      gap: 20px;
+      font-size: 14px;
+
+      span {
+        background: rgba(0, 255, 255, 0.1);
+        color: #00ffff;
+        padding: 5px 10px;
+        border-radius: 4px;
+        border: 1px solid rgba(0, 255, 255, 0.3);
+        text-shadow: 0 0 5px #00ffff;
+      }
+    }
+
+    .game-controls {
+      font-size: 12px;
+      opacity: 0.9;
+      color: #ffffff;
+    }
+  }
+
+  .game-container {
+    position: relative;
+    width: 100%;
+    height: 400px;
+    background: radial-gradient(ellipse at center, #000033 0%, #000011 100%);
+
+    @media (min-width: 768px) {
+      height: 500px;
+    }
+
+    @media (min-width: 1024px) {
+      height: 600px;
+    }
+  }
+
+  .game-canvas {
+    display: block;
+    width: 100%;
+    height: 100%;
+    cursor: crosshair;
+    outline: none;
+    background: radial-gradient(ellipse at center, #000033 0%, #000011 100%);
+
+    &:focus {
+      outline: 2px solid #00ffff;
+      outline-offset: -2px;
+    }
+  }
+
+  .game-overlay {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    background: rgba(0, 0, 17, 0.95);
+    color: #00ffff;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 0 30px rgba(0, 255, 255, 0.3);
+    backdrop-filter: blur(10px);
+    border: 2px solid #00ffff;
+    max-width: 90%;
+    z-index: 10;
+
+    h3 {
+      font-family: 'Courier New', monospace;
+      color: #00ffff;
+      margin-bottom: 15px;
+      font-size: clamp(1.2rem, 4vw, 1.8rem);
+      text-shadow: 0 0 10px #00ffff;
+      letter-spacing: 2px;
+    }
+
+    p {
+      font-family: 'Courier New', monospace;
+      color: #ffffff;
+      margin-bottom: 15px;
+      font-size: clamp(0.9rem, 2.5vw, 1.1rem);
+      line-height: 1.4;
+    }
+
+    .controls-hint {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      margin-top: 15px;
+
+      span {
+        font-family: 'Courier New', monospace;
+        font-size: clamp(0.8rem, 2vw, 0.9rem);
+        color: #ffff00;
+        background: rgba(255, 255, 0, 0.1);
+        padding: 5px 10px;
+        border-radius: 4px;
+        border: 1px solid rgba(255, 255, 0, 0.3);
+        text-shadow: 0 0 5px #ffff00;
+      }
+
+      @media (min-width: 768px) {
+        flex-direction: row;
+        justify-content: center;
+        gap: 15px;
+      }
+    }
+
+    .new-record {
+      color: #ff0000;
+      font-weight: bold;
+      animation: blink 1s infinite;
+      text-shadow: 0 0 10px #ff0000;
+    }
+
+    .restart-btn {
+      background: linear-gradient(135deg, #ff0000, #cc0000);
+      color: white;
+      border: 2px solid #ff0000;
+      padding: 12px 24px;
+      border-radius: 4px;
+      font-family: 'Courier New', monospace;
+      font-weight: bold;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      margin-top: 15px;
+      font-size: clamp(0.9rem, 2.5vw, 1rem);
+      box-shadow: 0 0 15px rgba(255, 0, 0, 0.3);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+
+      &:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 0 25px rgba(255, 0, 0, 0.5);
+        background: linear-gradient(135deg, #cc0000, #ff0000);
+        text-shadow: 0 0 5px white;
+      }
+
+      &:active {
+        transform: translateY(0);
+      }
+    }
+
+    &.game-over {
+      border-color: #ff0000;
+      box-shadow: 0 0 30px rgba(255, 0, 0, 0.5);
+      
+      h3 {
+        color: #ff0000;
+        text-shadow: 0 0 15px #ff0000;
+      }
+    }
+  }
+}
+
+// Responsive Design
+@media (max-width: 768px) {
+  .space-invaders-game {
+    .game-info {
+      padding: 10px 15px;
+      flex-direction: column;
+      gap: 10px;
+      text-align: center;
+
+      .score-display {
+        gap: 10px;
+        justify-content: center;
+        flex-wrap: wrap;
+
+        span {
+          font-size: 12px;
+          padding: 3px 8px;
+        }
+      }
+
+      .game-controls {
+        font-size: 10px;
+      }
+    }
+
+    .game-container {
+      height: 350px;
+    }
+
+    .game-overlay {
+      padding: 20px;
+
+      h3 {
+        font-size: 1.4rem;
+      }
+
+      p {
+        font-size: 0.9rem;
+      }
+
+      .controls-hint span {
+        font-size: 0.75rem;
+        padding: 3px 6px;
+      }
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .space-invaders-game {
+    .game-container {
+      height: 300px;
+    }
+
+    .game-info {
+      .score-display {
+        gap: 8px;
+        
+        span {
+          font-size: 10px;
+          padding: 2px 6px;
+        }
+      }
+    }
+
+    .game-overlay {
+      padding: 15px;
+      max-width: 95%;
+
+      .controls-hint {
+        flex-direction: column;
+        gap: 5px;
+
+        span {
+          font-size: 0.7rem;
+          padding: 2px 5px;
+        }
+      }
+    }
+  }
+}
+
+// Landscape Mobile Optimization
+@media (max-height: 500px) and (orientation: landscape) {
+  .space-invaders-game {
+    .game-container {
+      height: 250px;
+    }
+
+    .game-overlay {
+      padding: 15px;
+      
+      h3 {
+        font-size: 1.2rem;
+        margin-bottom: 10px;
+      }
+
+      p {
+        font-size: 0.8rem;
+        margin-bottom: 10px;
+      }
+
+      .controls-hint {
+        margin-top: 10px;
+        
+        span {
+          font-size: 0.7rem;
+          padding: 2px 5px;
+        }
+      }
+
+      .restart-btn {
+        padding: 8px 16px;
+        font-size: 0.8rem;
+        margin-top: 10px;
+      }
+    }
+  }
+}
+
+// Animations
+@keyframes blink {
+  0%, 50% {
+    opacity: 1;
+  }
+  51%, 100% {
+    opacity: 0.3;
+  }
+}
+
+// Retro CRT effect (optional)
+.space-invaders-game::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    transparent 50%, 
+    rgba(0, 255, 0, 0.03) 50%
+  );
+  background-size: 100% 4px;
+  pointer-events: none;
+  z-index: 1;
+}
+
+// Reduced Motion
+@media (prefers-reduced-motion: reduce) {
+  .space-invaders-game {
+    .game-overlay .new-record {
+      animation: none;
+    }
+
+    .restart-btn:hover {
+      transform: none;
+    }
+
+    &::before {
+      display: none;
+    }
+  }
+}
+
+// High Contrast Mode
+@media (prefers-contrast: high) {
+  .space-invaders-game {
+    border: 3px solid white;
+
+    .game-overlay {
+      border: 3px solid white;
+      background: black;
+    }
+
+    .restart-btn {
+      border: 2px solid white;
+    }
+  }
+}
+
+// Touch Device Optimizations
+@media (hover: none) and (pointer: coarse) {
+  .space-invaders-game {
+    .game-canvas {
+      cursor: default;
+    }
+
+    .restart-btn:hover {
+      transform: none;
+    }
+
+    .restart-btn:active {
+      transform: scale(0.95);
+    }
+  }
+}
