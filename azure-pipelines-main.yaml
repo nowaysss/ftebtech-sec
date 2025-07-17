@@ -37,7 +37,7 @@ steps:
   - task: AzureWebApp@1
     inputs:
       azureSubscription: 'fteb-devops'
-      appName: 'fteb-website'
+      appName: 'fteb-main-website'
       package: '$(Build.ArtifactStagingDirectory)/app.zip'
       appType: 'webAppLinux'
       startUpCommand: 'pm2 serve /home/site/wwwroot --no-daemon --spa'
